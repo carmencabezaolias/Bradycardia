@@ -11,4 +11,21 @@ package Pojos;
  */
 public class Patient {
 
+    private int ID;
+    String fullName;
+    String username;
+    private byte[] password;
+
+    public Patient(String username, String fullname, byte[] password) {
+        super();
+        this.fullName = fullName;
+        this.username = username;
+        this.password = password;
+    }
+
+    public Patient(String username, String fullname) {
+        super();
+        this.fullName = fullName;
+        this.username = username;
+    }
 }

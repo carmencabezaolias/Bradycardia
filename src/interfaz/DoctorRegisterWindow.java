@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import Pojos.Doctor;
 import Utilities.Exceptions;
 import java.awt.Color;
 import java.util.Arrays;
@@ -41,8 +42,8 @@ public class DoctorRegisterWindow extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         SaveBut = new javax.swing.JButton();
+        InputFullName = new javax.swing.JTextField();
         InputUsername = new javax.swing.JTextField();
-        InputUsername1 = new javax.swing.JTextField();
         ErrorText = new javax.swing.JLabel();
         InputPassword = new javax.swing.JPasswordField();
         Input2Password = new javax.swing.JPasswordField();
@@ -68,20 +69,25 @@ public class DoctorRegisterWindow extends javax.swing.JFrame {
             }
         });
 
+        InputFullName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputFullNameActionPerformed(evt);
+            }
+        });
+
         InputUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InputUsernameActionPerformed(evt);
             }
         });
 
-        InputUsername1.setText("  ");
-        InputUsername1.addActionListener(new java.awt.event.ActionListener() {
+        ErrorText.setText("This username already exist");
+
+        InputPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputUsername1ActionPerformed(evt);
+                InputPasswordActionPerformed(evt);
             }
         });
-
-        ErrorText.setText("This username already exist");
 
         PasswordError.setText("Passwords are not the same");
 
@@ -106,7 +112,6 @@ public class DoctorRegisterWindow extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel2)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel5)
                             .addGap(18, 18, 18)
@@ -114,13 +119,14 @@ public class DoctorRegisterWindow extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel3)
-                                .addComponent(jLabel4))
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel2))
                             .addGap(51, 51, 51)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel1)
-                                    .addComponent(InputUsername)
-                                    .addComponent(InputUsername1, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE))
+                                    .addComponent(InputFullName)
+                                    .addComponent(InputUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE))
                                 .addComponent(InputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(PasswordError, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ErrorText))
@@ -133,15 +139,15 @@ public class DoctorRegisterWindow extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(InputUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
-                .addComponent(ErrorText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(InputUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InputFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InputUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ErrorText)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(InputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -161,38 +167,39 @@ public class DoctorRegisterWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void InputFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputFullNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputFullNameActionPerformed
+
     private void InputUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InputUsernameActionPerformed
 
-    private void InputUsername1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputUsername1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InputUsername1ActionPerformed
-
     private void SaveButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButActionPerformed
-        boolean error = false;
-        boolean comprobation = Exceptions.checkUsername((String) this.InputUsername.getText());// TODO add your handling code here:
+        boolean error1, error2 = false;
+        boolean comprobation = Exceptions.checkUsername((String) this.InputFullName.getText());// TODO add your handling code here:
         if (!comprobation) {
             this.ErrorText.setForeground(Color.red);
             this.ErrorText.setVisible(true);
-            //porque no es un numero!
-            error = true;
+            error1 = true;
         } else {
             this.ErrorText.setVisible(false);
-            error = false;
+            error1 = false;
         }
 
         if (Arrays.equals(this.InputPassword.getPassword(), this.Input2Password.getPassword())) {
             this.PasswordError.setVisible(false);
-            error = false;
+            error2 = false;
         } else {
-            error = true;
+            error2 = true;
             this.PasswordError.setForeground(Color.red);
             this.PasswordError.setVisible(true);
         }
 
-        if (!error) {
-            //guardar en base de datos
+        if (!error1 && !error2) {
+            String name = this.InputFullName.getText();
+            String username = this.InputUsername.getText();
+            Doctor doctor = new Doctor(name, username);//guardar en base de datos
             DoctorLoginWindow rd = new DoctorLoginWindow();
             this.setVisible(false);
             rd.setVisible(true);
@@ -205,6 +212,10 @@ public class DoctorRegisterWindow extends javax.swing.JFrame {
         this.setVisible(false);
         rd.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_BackButActionPerformed
+
+    private void InputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,9 +257,9 @@ public class DoctorRegisterWindow extends javax.swing.JFrame {
     private javax.swing.JButton BackBut;
     private javax.swing.JLabel ErrorText;
     private javax.swing.JPasswordField Input2Password;
+    private javax.swing.JTextField InputFullName;
     private javax.swing.JPasswordField InputPassword;
     private javax.swing.JTextField InputUsername;
-    private javax.swing.JTextField InputUsername1;
     private javax.swing.JLabel PasswordError;
     private javax.swing.JButton SaveBut;
     private javax.swing.JLabel jLabel1;

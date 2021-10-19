@@ -6,6 +6,7 @@
 package interfaz;
 
 import BITalino.BITalino;
+import BITalino.BITalinoException;
 import Utilities.Exceptions;
 import java.awt.Color;
 
@@ -168,9 +169,9 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
         int SamplingRate = 0;
         boolean error = true;
         String macAddress = "";
-        macAddress = this.MacInput.getSelectedText();
-        if (Exceptions.checkInt(this.SamplingRateInput.getSelectedText())) {
-            SamplingRate = Exceptions.convertInt(this.SamplingRateInput.getSelectedText());
+        macAddress = this.MacInput.getText();
+        if (Exceptions.checkInt(this.SamplingRateInput.getText())) {
+            SamplingRate = Exceptions.convertInt(this.SamplingRateInput.getText());
         }
         if (SamplingRate != 10 || SamplingRate != 100 || SamplingRate != 1000) {
             this.SamplingError.setForeground(Color.red);
@@ -190,21 +191,29 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
             error = false;
         }
         if (!error) {
-            bitalino.open(macAddress, SamplingRate);
+            try {
+                bitalino.open(macAddress, SamplingRate);
+            } catch (BITalinoException be) {
+
+            }
         }
         int a = this.SignalInput.getSelectedIndex();
         switch (a) {
             case 0:
-                int[] channelsToAcquire = {3};
+                int[] channelsToAcquire = {1};
                 bitalino.start(channelsToAcquire);
                 break;
             case 1:
-                int[] channelsToAcquire2 = {5};
+                int[] channelsToAcquire2 = {4};
                 bitalino.start(channelsToAcquire2);
                 break;
             case 2:
-                int[] channelsToAcquire3 = {1, 3};
+                int[] channelsToAcquire3 = {1, 4};
                 bitalino.start(channelsToAcquire3);
+                break;
+            default:
+                // mostrar ventana error
+                break;
         }
     }//GEN-LAST:event_FindButActionPerformed
 

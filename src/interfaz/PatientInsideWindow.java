@@ -31,6 +31,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
 
         GetBut = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        ExitBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,15 +44,27 @@ public class PatientInsideWindow extends javax.swing.JFrame {
 
         jButton2.setText("SEE DATA");
 
+        ExitBut.setText("Exit");
+        ExitBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitButActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(GetBut))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2)
+                            .addComponent(GetBut)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ExitBut)))
                 .addContainerGap(149, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -61,7 +74,9 @@ public class PatientInsideWindow extends javax.swing.JFrame {
                 .addComponent(GetBut)
                 .addGap(32, 32, 32)
                 .addComponent(jButton2)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addComponent(ExitBut)
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -72,6 +87,12 @@ public class PatientInsideWindow extends javax.swing.JFrame {
         this.setVisible(false);
         rd.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_GetButActionPerformed
+
+    private void ExitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButActionPerformed
+        PatientPrincipalWindow rd = new PatientPrincipalWindow();
+        this.setVisible(false);
+        rd.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_ExitButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,6 +131,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ExitBut;
     private javax.swing.JButton GetBut;
     private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
