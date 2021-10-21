@@ -44,8 +44,4 @@ public class Exceptions {
         return isInt;
     }
 
-    public static boolean checkMac(String mac) {
-        return true;
-    }
-
 }

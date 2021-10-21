@@ -5,8 +5,9 @@
  */
 package interfaz;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
+import BITalino.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,12 +22,31 @@ public class PatientGetData extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        DefaultListModel<String> model = new DefaultListModel<>();
-        JList<String> list = new JList<>(model);
-        for (int i = 0; i < 10; i++) { //size de la lista
-            model.addElement("a");
+        Frame[] frame;
+
+        for (int j = 0; j < 10000000; j++) {
+
+            try {
+                //Read a block of 100 samples
+                frame = PatientBitalinoWindow.bitalino.read(10);
+
+                System.out.println("size block: " + frame.length);
+
+                //Print the samples
+                for (int i = 0; i < frame.length; i++) {
+                    System.out.println((j * 100 + i) + " seq: " + frame[i].seq + " "
+                            + frame[i].analog[0] + " "
+                            + frame[i].analog[1] + " "
+                    //  + frame[i].analog[2] + " "
+                    //  + frame[i].analog[3] + " "
+                    //  + frame[i].analog[4] + " "
+                    //  + frame[i].analog[5]
+                    );
+                }
+            } catch (BITalinoException ex) {
+                Logger.getLogger(PatientGetData.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        this.ListDays.setModel(model);
 
     }
 
@@ -39,20 +59,17 @@ public class PatientGetData extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane3 = new javax.swing.JScrollPane();
-        ListDays = new javax.swing.JList<>();
-        SeeBut = new javax.swing.JButton();
+        StopBut = new javax.swing.JButton();
         BackBut = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        OutputText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ListDays.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane3.setViewportView(ListDays);
-
-        SeeBut.setText("See");
-        SeeBut.addActionListener(new java.awt.event.ActionListener() {
+        StopBut.setText("Stop");
+        StopBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SeeButActionPerformed(evt);
+                StopButActionPerformed(evt);
             }
         });
 
@@ -63,40 +80,47 @@ public class PatientGetData extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setViewportView(OutputText);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(BackBut)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SeeBut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                .addComponent(StopBut)
                 .addGap(63, 63, 63))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BackBut)
-                    .addComponent(SeeBut))
+                    .addComponent(StopBut))
                 .addGap(31, 31, 31))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SeeButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeeButActionPerformed
-        //pasar a la ventana de ver los datos el dia
+    private void StopButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopButActionPerformed
+
+        try {
+            PatientBitalinoWindow.bitalino.stop();
+        } catch (BITalinoException ex) {
+            Logger.getLogger(PatientGetData.class.getName()).log(Level.SEVERE, null, ex);
+        }        //pasar a la ventana de ver los datos el dia
         // this.ListDays.getSelectedValue();
-    }//GEN-LAST:event_SeeButActionPerformed
+    }//GEN-LAST:event_StopButActionPerformed
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed
         PatientInsideWindow rd = new PatientInsideWindow();
@@ -144,8 +168,8 @@ public class PatientGetData extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackBut;
-    private javax.swing.JList<String> ListDays;
-    private javax.swing.JButton SeeBut;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel OutputText;
+    private javax.swing.JButton StopBut;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

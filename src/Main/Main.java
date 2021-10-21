@@ -3,13 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main;
+package Main;
+
+import BITalino.BITalino;
 
 /**
  *
  * @author carmen
  */
 public class Main {
+
+    public BITalino bitalino;
 
     /**
      * @param args the command line arguments
