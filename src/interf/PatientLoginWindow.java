@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package interf;
 
 /**
  *
  * @author carmen
  */
-public class DoctorLoginWindow extends javax.swing.JFrame {
+public class PatientLoginWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginDocWindow
      */
-    public DoctorLoginWindow() {
+    public PatientLoginWindow() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -44,6 +44,8 @@ public class DoctorLoginWindow extends javax.swing.JFrame {
         jLabel2.setText("Username: ");
 
         jLabel3.setText("Password: ");
+
+        inputUser.setText("   ");
 
         LoginBut.setText("Login");
         LoginBut.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +77,7 @@ public class DoctorLoginWindow extends javax.swing.JFrame {
                     .addComponent(inputPassword))
                 .addGap(46, 46, 46))
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
                 .addComponent(BackBut)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LoginBut)
@@ -106,15 +108,15 @@ public class DoctorLoginWindow extends javax.swing.JFrame {
 
     private void LoginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButActionPerformed
         //comprobar el username y el pass        // TODO add your handling code here:
-        DoctorInsideWindow rd = new DoctorInsideWindow();
+        PatientInsideWindow rd = new PatientInsideWindow();
         this.setVisible(false);
         rd.setVisible(true);
     }//GEN-LAST:event_LoginButActionPerformed
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed
-        DoctorPrincipalWindow rd = new DoctorPrincipalWindow();
+        PatientPrincipalWindow rd = new PatientPrincipalWindow();
         this.setVisible(false);
-        rd.setVisible(true);        // TODO add your handling code here:
+        rd.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_BackButActionPerformed
 
     /**
@@ -134,21 +136,23 @@ public class DoctorLoginWindow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DoctorLoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PatientLoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DoctorLoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PatientLoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DoctorLoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PatientLoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DoctorLoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PatientLoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DoctorLoginWindow().setVisible(true);
+                new PatientLoginWindow().setVisible(true);
             }
         });
     }

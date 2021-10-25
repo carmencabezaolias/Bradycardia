@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package interf;
 
 /**
  *
  * @author carmen
  */
-public class PatientInsideWindow extends javax.swing.JFrame {
+public class DoctorPrincipalWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form DoctorInsideWindow
+     * Creates new form DoctorPrincipalWindow
      */
-    public PatientInsideWindow() {
+    public DoctorPrincipalWindow() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -29,25 +29,25 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        GetBut = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        ExitBut = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        LoginBut = new javax.swing.JButton();
+        RegisterBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        GetBut.setText("GET DATA");
-        GetBut.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("WELCOME DOCTOR!");
+
+        LoginBut.setText("LOGIN");
+        LoginBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GetButActionPerformed(evt);
+                LoginButActionPerformed(evt);
             }
         });
 
-        jButton2.setText("SEE DATA");
-
-        ExitBut.setText("Exit");
-        ExitBut.addActionListener(new java.awt.event.ActionListener() {
+        RegisterBut.setText("REGISTER");
+        RegisterBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitButActionPerformed(evt);
+                RegisterButActionPerformed(evt);
             }
         });
 
@@ -58,41 +58,42 @@ public class PatientInsideWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(GetBut)))
+                        .addGap(137, 137, 137)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(ExitBut)))
-                .addContainerGap(149, Short.MAX_VALUE))
+                        .addGap(58, 58, 58)
+                        .addComponent(LoginBut)
+                        .addGap(74, 74, 74)
+                        .addComponent(RegisterBut)))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(GetBut)
-                .addGap(32, 32, 32)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addComponent(ExitBut)
-                .addGap(18, 18, 18))
+                .addGap(50, 50, 50)
+                .addComponent(jLabel1)
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LoginBut)
+                    .addComponent(RegisterBut))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void GetButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GetButActionPerformed
-        PatientBitalinoWindow rd = new PatientBitalinoWindow();
+    private void LoginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButActionPerformed
+        DoctorLoginWindow rd = new DoctorLoginWindow();
+        this.setVisible(false);
+        rd.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoginButActionPerformed
+
+    private void RegisterButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButActionPerformed
+        DoctorRegisterWindow rd = new DoctorRegisterWindow();
         this.setVisible(false);
         rd.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_GetButActionPerformed
-
-    private void ExitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButActionPerformed
-        PatientPrincipalWindow rd = new PatientPrincipalWindow();
-        this.setVisible(false);
-        rd.setVisible(true);         // TODO add your handling code here:
-    }//GEN-LAST:event_ExitButActionPerformed
+    }//GEN-LAST:event_RegisterButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,28 +112,27 @@ public class PatientInsideWindow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PatientInsideWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DoctorPrincipalWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PatientInsideWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DoctorPrincipalWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PatientInsideWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DoctorPrincipalWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PatientInsideWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DoctorPrincipalWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PatientInsideWindow().setVisible(true);
+                new DoctorPrincipalWindow().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ExitBut;
-    private javax.swing.JButton GetBut;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton LoginBut;
+    private javax.swing.JButton RegisterBut;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

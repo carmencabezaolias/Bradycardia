@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package interf;
 
 import BITalino.BITalino;
 import BITalino.BITalinoException;
@@ -184,7 +184,7 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
     private void FindButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindButActionPerformed
         bitalino = null;
         int samplingRate = 0;
-        boolean error = true;
+        boolean errorMac, errorSam = false;
         String macAddress = "";
         macAddress = this.MacInput.getText();
         String sampling = this.SamplingRateInput.getText();
@@ -192,10 +192,10 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
         if (!FunctionsInterfaz.checkMac(macAddress)) {
             this.MacError.setForeground(Color.red);
             this.MacError.setVisible(true);
-            error = true;
+            errorMac = true;
         } else {
             this.MacError.setVisible(false);
-            error = false;
+            errorMac = false;
         }
 
         samplingRate = FunctionsInterfaz.checkSamping(sampling);
@@ -203,21 +203,26 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
             this.SamplingError.setText("The sampling rate is a number");
             this.SamplingError.setForeground(Color.red);
             this.SamplingError.setVisible(true);
-            error = true;
-        } else if (samplingRate == 1) {
+            errorSam = true;
+        } else if (samplingRate == 2) {
             this.SamplingError.setText("The sampling rate has to be 10,100 or 1000");
             this.SamplingError.setForeground(Color.red);
             this.SamplingError.setVisible(true);
-            error = true;
+            errorSam = true;
+        } else {
+            errorSam = false;
         }
-
-        if (!error) {
+        boolean er;
+        if (!errorSam && !errorMac) {
             try {
                 bitalino.open(macAddress, samplingRate);
                 this.ErrorText.setVisible(false);
                 int a = this.SignalInput.getSelectedIndex();
-                boolean er = FunctionsInterfaz.checkChannel(a, bitalino);
+                er = FunctionsInterfaz.checkChannel(a, bitalino);
             } catch (BITalinoException be) {
+                er = true;
+            }
+            if (er) {
                 this.ErrorText.setForeground(Color.red);
                 this.ErrorText.setText("Something went wrong");
                 this.ErrorText.setVisible(true);

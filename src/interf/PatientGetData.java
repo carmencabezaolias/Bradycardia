@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package interf;
 
-import BITalino.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import Utilities.FunctionsInterfaz;
 
 /**
  *
@@ -22,31 +20,7 @@ public class PatientGetData extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        Frame[] frame;
-
-        for (int j = 0; j < 10000000; j++) {
-
-            try {
-                //Read a block of 100 samples
-                frame = PatientBitalinoWindow.bitalino.read(10);
-
-                System.out.println("size block: " + frame.length);
-
-                //Print the samples
-                for (int i = 0; i < frame.length; i++) {
-                    System.out.println((j * 100 + i) + " seq: " + frame[i].seq + " "
-                            + frame[i].analog[0] + " "
-                            + frame[i].analog[1] + " "
-                    //  + frame[i].analog[2] + " "
-                    //  + frame[i].analog[3] + " "
-                    //  + frame[i].analog[4] + " "
-                    //  + frame[i].analog[5]
-                    );
-                }
-            } catch (BITalinoException ex) {
-                Logger.getLogger(PatientGetData.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+        FunctionsInterfaz.getDataBitalino();
 
     }
 
@@ -113,13 +87,7 @@ public class PatientGetData extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void StopButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopButActionPerformed
-
-        try {
-            PatientBitalinoWindow.bitalino.stop();
-        } catch (BITalinoException ex) {
-            Logger.getLogger(PatientGetData.class.getName()).log(Level.SEVERE, null, ex);
-        }        //pasar a la ventana de ver los datos el dia
-        // this.ListDays.getSelectedValue();
+        FunctionsInterfaz.stopDataBitalino();
     }//GEN-LAST:event_StopButActionPerformed
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed

@@ -7,6 +7,11 @@ package Utilities;
 
 import BITalino.BITalino;
 import BITalino.BITalinoException;
+import BITalino.Frame;
+import interf.PatientBitalinoWindow;
+import interf.PatientGetData;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -30,17 +35,20 @@ public class FunctionsInterfaz {
         int sam = 0;
         if (Exceptions.checkInt(sampling)) {
             sam = Exceptions.convertInt(sampling);
+            System.out.println(sam);
+            if (sam != 10 && sam != 100 && sam != 1000) {
+                sam = 2;
+            }
         } else {
             sam = 1;
         }
-        if (sam != 10 || sam != 100 || sam != 1000) {
-            sam = 2;
-        }
+
         return sam;
     }
 
     public static boolean checkChannel(int a, BITalino bitalino) {
         boolean err = false;
+        System.out.println("a" + a);
         try {
             switch (a) {
                 case 0:
@@ -81,4 +89,41 @@ public class FunctionsInterfaz {
         }
         return error;
     }
+
+    public static void getDataBitalino() {
+        Frame[] frame;
+        for (int j = 0; j < 10000000; j++) {
+
+            try {
+                //Read a block of 100 samples
+                frame = PatientBitalinoWindow.bitalino.read(100);
+
+                System.out.println("size block: " + frame.length);
+
+                //Print the samples
+                for (int i = 0; i < frame.length; i++) {
+                    System.out.println((j * 100 + i) + " seq: " + frame[i].seq + " "
+                            + frame[i].analog[0] + " "
+                            + frame[i].analog[1] + " "
+                    );
+                    String a = (j * 100 + i) + " seq: " + frame[i].seq + " "
+                            + frame[i].analog[0] + " "
+                            + frame[i].analog[1] + " ";
+                    // se podria devolver este a para imprimirlo por pantalla.
+
+                }
+            } catch (BITalinoException ex) {
+                Logger.getLogger(FunctionsInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    public static void stopDataBitalino() {
+        try {
+            PatientBitalinoWindow.bitalino.stop();
+        } catch (BITalinoException ex) {
+            Logger.getLogger(PatientGetData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
