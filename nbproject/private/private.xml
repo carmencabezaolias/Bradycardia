@@ -5,13 +5,16 @@
         <group>
             <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientBitalinoWindow.java</file>
             <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientRegisterWindow.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/DoctorRegisterWindow.java</file>
+            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/Pojos/Patient.java</file>
             <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientGetData.java</file>
+            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientLoginWindow.java</file>
             <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/Utilities/FunctionsInterfaz.java</file>
             <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/Main/Main.java</file>
+            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientChooseSignal.java</file>
             <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/Utilities/Exceptions.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/BITalino/BITalino.java</file>
+            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientInsideWindow.java</file>
             <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/Pojos/Doctor.java</file>
+            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientPrincipalWindow.java</file>
         </group>
     </open-files>
 </project-private>

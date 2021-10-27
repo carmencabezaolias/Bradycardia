@@ -37,6 +37,7 @@ public class PatientGetData extends javax.swing.JFrame {
         BackBut = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         OutputText = new javax.swing.JLabel();
+        StartBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,6 +57,13 @@ public class PatientGetData extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(OutputText);
 
+        StartBut.setText("Start");
+        StartBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StartButActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,13 +78,19 @@ public class PatientGetData extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addComponent(StartBut)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1)
-                .addGap(42, 42, 42)
+                .addGap(13, 13, 13)
+                .addComponent(StartBut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BackBut)
                     .addComponent(StopBut))
@@ -95,6 +109,10 @@ public class PatientGetData extends javax.swing.JFrame {
         this.setVisible(false);
         rd.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_BackButActionPerformed
+
+    private void StartButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButActionPerformed
+        FunctionsInterfaz.getDataBitalino();// TODO add your handling code here:
+    }//GEN-LAST:event_StartButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,6 +155,7 @@ public class PatientGetData extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackBut;
     private javax.swing.JLabel OutputText;
+    private javax.swing.JButton StartBut;
     private javax.swing.JButton StopBut;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

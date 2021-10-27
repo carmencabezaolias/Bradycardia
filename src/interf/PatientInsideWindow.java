@@ -5,6 +5,8 @@
  */
 package interf;
 
+import java.awt.Color;
+
 /**
  *
  * @author carmen
@@ -18,6 +20,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.ErrorBitText.setVisible(false);
     }
 
     /**
@@ -32,10 +35,12 @@ public class PatientInsideWindow extends javax.swing.JFrame {
         GetBut = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         ExitBut = new javax.swing.JButton();
+        OtherBitalinoBut = new javax.swing.JButton();
+        ErrorBitText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        GetBut.setText("GET DATA");
+        GetBut.setText("GET DATA FROM MY BITALINO");
         GetBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GetButActionPerformed(evt);
@@ -51,6 +56,15 @@ public class PatientInsideWindow extends javax.swing.JFrame {
             }
         });
 
+        OtherBitalinoBut.setText("INTRODUCE MY BITALINO ");
+        OtherBitalinoBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OtherBitalinoButActionPerformed(evt);
+            }
+        });
+
+        ErrorBitText.setText("You have not register a BITalino yet");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -58,23 +72,32 @@ public class PatientInsideWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(GetBut)))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(ExitBut)))
-                .addContainerGap(149, Short.MAX_VALUE))
+                        .addComponent(ExitBut))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(GetBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(OtherBitalinoBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(128, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ErrorBitText)
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(34, 34, 34)
                 .addComponent(GetBut)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ErrorBitText)
+                .addGap(21, 21, 21)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addComponent(OtherBitalinoBut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(ExitBut)
                 .addGap(18, 18, 18))
         );
@@ -83,9 +106,15 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GetButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GetButActionPerformed
-        PatientBitalinoWindow rd = new PatientBitalinoWindow();
-        this.setVisible(false);
-        rd.setVisible(true);        // TODO add your handling code here:
+        if (PatientPrincipalWindow.patient.getMacBitalino() != null) {
+            PatientChooseSignal rd = new PatientChooseSignal();
+            this.setVisible(false);
+            rd.setVisible(true);
+        } else {
+            this.ErrorBitText.setForeground(Color.red);
+            this.ErrorBitText.setVisible(true);
+        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_GetButActionPerformed
 
     private void ExitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButActionPerformed
@@ -93,6 +122,12 @@ public class PatientInsideWindow extends javax.swing.JFrame {
         this.setVisible(false);
         rd.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_ExitButActionPerformed
+
+    private void OtherBitalinoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherBitalinoButActionPerformed
+        PatientBitalinoWindow rd = new PatientBitalinoWindow();
+        this.setVisible(false);
+        rd.setVisible(true);     // TODO add your handling code here:
+    }//GEN-LAST:event_OtherBitalinoButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,8 +166,10 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ErrorBitText;
     private javax.swing.JButton ExitBut;
     private javax.swing.JButton GetBut;
+    private javax.swing.JButton OtherBitalinoBut;
     private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }

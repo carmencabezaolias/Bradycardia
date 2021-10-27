@@ -5,16 +5,21 @@
  */
 package interf;
 
+import Pojos.Patient;
+
 /**
  *
  * @author carmen
  */
 public class PatientPrincipalWindow extends javax.swing.JFrame {
 
+    public static Patient patient = new Patient();
+
     public PatientPrincipalWindow() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+
     }
 
     /**

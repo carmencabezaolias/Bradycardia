@@ -6,9 +6,9 @@
 package interf;
 
 import Utilities.Exceptions;
+import Utilities.FunctionsInterfaz;
 import java.awt.Color;
 import java.util.Arrays;
-import pojos.Patient;
 
 /**
  *
@@ -186,13 +186,9 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
             this.PasswordError.setForeground(Color.red);
             this.PasswordError.setVisible(true);
         }
-
         if (!error1 && !error2) {
-
-            String name = this.InputFullName.getText();
-            String username = this.InputFullName.getText();
-            Patient patient = new Patient(name, username);//guardar en base de datos
-            PatientLoginWindow rd = new PatientLoginWindow();
+            FunctionsInterfaz.introducePatient(this.InputFullName.getText(), this.InputFullName.getText(), this.InputPassword.getPassword());
+            PatientBitalinoWindow rd = new PatientBitalinoWindow();
             this.setVisible(false);
             rd.setVisible(true);
         }

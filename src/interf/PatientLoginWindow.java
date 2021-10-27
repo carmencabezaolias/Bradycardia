@@ -107,7 +107,8 @@ public class PatientLoginWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButActionPerformed
-        //comprobar el username y el pass        // TODO add your handling code here:
+        //comprobar el username y el pass
+        //PatientPrincipalWindow.patient igualarlo!
         PatientInsideWindow rd = new PatientInsideWindow();
         this.setVisible(false);
         rd.setVisible(true);

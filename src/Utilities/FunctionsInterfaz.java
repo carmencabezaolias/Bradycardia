@@ -8,8 +8,9 @@ package Utilities;
 import BITalino.BITalino;
 import BITalino.BITalinoException;
 import BITalino.Frame;
-import interf.PatientBitalinoWindow;
+import interf.PatientChooseSignal;
 import interf.PatientGetData;
+import interf.PatientPrincipalWindow;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class FunctionsInterfaz {
 
-    public static boolean checkBitalino(String macAddress, int sampling) {
+    /*public static boolean checkBitalino(String macAddress, int sampling) {
         BITalino bitalino = null;
         boolean error;
         try {
@@ -29,28 +30,41 @@ public class FunctionsInterfaz {
             error = true;
         }
         return error;
+    }*/
+    public static void introducePatient(String name, String username, char[] Pass) {
+        PatientPrincipalWindow.patient.setFullName(name);//guardar en base de datos
+        PatientPrincipalWindow.patient.setUsername(username);
+        //lo del hash con las pass
     }
 
-    public static int checkSamping(String sampling) {
-        int sam = 0;
-        if (Exceptions.checkInt(sampling)) {
-            sam = Exceptions.convertInt(sampling);
-            System.out.println(sam);
-            if (sam != 10 && sam != 100 && sam != 1000) {
-                sam = 2;
-            }
-        } else {
-            sam = 1;
+    public static int getSampling(int i) {
+        int sampling = 0;
+        System.out.println("El chose: " + i);
+        switch (i) {
+            case 0:
+                sampling = 10;
+                break;
+            case 1:
+                sampling = 100;
+                break;
+            case 2:
+                sampling = 1000;
+                break;
         }
-
-        return sam;
+        return sampling;
     }
 
-    public static boolean checkChannel(int a, BITalino bitalino) {
-        boolean err = false;
-        System.out.println("a" + a);
+    public static boolean configuredBitalino(String macAddress, int sampling, int channel) {
+        boolean error = false;
+        BITalino bitalino = new BITalino();
         try {
-            switch (a) {
+            bitalino.open(macAddress, sampling);
+            error = false;
+        } catch (BITalinoException be) {
+            error = true;
+        }
+        try {
+            switch (channel) {
                 case 0:
                     int[] channelsToAcquire = {1};
                     bitalino.start(channelsToAcquire);
@@ -64,13 +78,13 @@ public class FunctionsInterfaz {
                     bitalino.start(channelsToAcquire3);
                     break;
                 default:
-                    err = true;
+                    error = true;
                     break;
             }
         } catch (Throwable ex) {
-            err = true;
+            error = true;
         }
-        return err;
+        return error;
     }
 
     public static boolean checkMac(String mac) {
@@ -96,7 +110,7 @@ public class FunctionsInterfaz {
 
             try {
                 //Read a block of 100 samples
-                frame = PatientBitalinoWindow.bitalino.read(100);
+                frame = PatientChooseSignal.bitalino.read(100);
 
                 System.out.println("size block: " + frame.length);
 
@@ -120,10 +134,22 @@ public class FunctionsInterfaz {
 
     public static void stopDataBitalino() {
         try {
-            PatientBitalinoWindow.bitalino.stop();
+            PatientChooseSignal.bitalino.stop();
         } catch (BITalinoException ex) {
             Logger.getLogger(PatientGetData.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public static boolean openBitalinoInInterface(String macAddress, int samplingRate) {
+        boolean error = false;
+        try {
+            PatientChooseSignal.bitalino.open(macAddress, samplingRate);
+            error = false;
+        } catch (BITalinoException ex) {
+            error = true;
+            Logger.getLogger(FunctionsInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return error;
     }
 
 }

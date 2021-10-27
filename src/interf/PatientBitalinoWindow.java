@@ -5,8 +5,6 @@
  */
 package interf;
 
-import BITalino.BITalino;
-import BITalino.BITalinoException;
 import Utilities.FunctionsInterfaz;
 import java.awt.Color;
 
@@ -16,8 +14,9 @@ import java.awt.Color;
  */
 public class PatientBitalinoWindow extends javax.swing.JFrame {
 
-    public static BITalino bitalino = null;
-
+    //prueba
+    //public BITalino bi = new BITalino();
+    //  public static String mac;
     /**
      * Creates new form PatientBitalinoWindow
      */
@@ -26,8 +25,6 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.MacError.setVisible(false);
-        this.SamplingError.setVisible(false);
-        this.ErrorText.setVisible(false);
     }
 
     /**
@@ -40,30 +37,26 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         BackBut = new javax.swing.JButton();
-        FindBut = new javax.swing.JButton();
+        AdqBut = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         MacInput = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        SamplingRateInput = new javax.swing.JTextField();
-        SamplingError = new javax.swing.JLabel();
         MacError = new javax.swing.JLabel();
-        SignalInput = new javax.swing.JComboBox<>();
-        ErrorText = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        SaveBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        BackBut.setText("Back");
+        BackBut.setText("Not now");
         BackBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackButActionPerformed(evt);
             }
         });
 
-        FindBut.setText("Find");
-        FindBut.addActionListener(new java.awt.event.ActionListener() {
+        AdqBut.setText("Adquire");
+        AdqBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FindButActionPerformed(evt);
+                AdqButActionPerformed(evt);
             }
         });
 
@@ -75,95 +68,63 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("INSERT YOUR SAMPLING RATE:");
-
-        SamplingRateInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SamplingRateInputActionPerformed(evt);
-            }
-        });
-
-        SamplingError.setText("It has to be 10, 100 or 1000");
-
         MacError.setText("This is not a MAC adress");
 
-        SignalInput.setMaximumRowCount(3);
-        SignalInput.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ECG", "Acelometer", "Both" }));
-        SignalInput.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setText("aa:aa:aa:aa:aa:aa");
+
+        SaveBut.setText("Save");
+        SaveBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SignalInputActionPerformed(evt);
+                SaveButActionPerformed(evt);
             }
         });
-
-        ErrorText.setText("Something went wrong");
-
-        jLabel3.setText("aa:aa:aa:aa:aa:aa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(BackBut)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(FindBut)
-                .addGap(50, 50, 50))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(SignalInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ErrorText))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(SamplingRateInput, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MacInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(99, 99, 99)
+                        .addComponent(MacInput, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(jLabel3)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addGap(144, 144, 144)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel1)))
+                .addContainerGap(108, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(SamplingError)
-                        .addGap(41, 41, 41))
+                        .addComponent(BackBut)
+                        .addGap(18, 18, 18)
+                        .addComponent(SaveBut)
+                        .addGap(45, 45, 45)
+                        .addComponent(AdqBut)
+                        .addGap(50, 50, 50))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(MacError)
-                        .addGap(69, 69, 69))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(105, 105, 105))))
+                        .addGap(63, 63, 63))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addContainerGap(82, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MacInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MacError)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(SamplingRateInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SamplingError, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SignalInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ErrorText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(90, 90, 90)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BackBut)
-                    .addComponent(FindBut))
+                    .addComponent(AdqBut)
+                    .addComponent(SaveBut))
                 .addGap(18, 18, 18))
         );
 
@@ -181,8 +142,15 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
         rd.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_BackButActionPerformed
 
-    private void FindButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindButActionPerformed
-        bitalino = null;
+    private void AdqButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdqButActionPerformed
+        boolean e = checkMacInterface();
+        if (!e) {
+            // mac = this.MacInput.getText();
+            PatientChooseSignal rd = new PatientChooseSignal();
+            this.setVisible(false);
+            rd.setVisible(true);
+        }
+        /*bitalino = new BITalino();
         int samplingRate = 0;
         boolean errorMac, errorSam = false;
         String macAddress = "";
@@ -213,32 +181,33 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
             errorSam = false;
         }
         boolean er;
+        boolean errorOpen;
         if (!errorSam && !errorMac) {
-            try {
-                bitalino.open(macAddress, samplingRate);
-                this.ErrorText.setVisible(false);
-                int a = this.SignalInput.getSelectedIndex();
-                er = FunctionsInterfaz.checkChannel(a, bitalino);
-            } catch (BITalinoException be) {
-                er = true;
-            }
-            if (er) {
+            Main.patient.setBitalino(bitalino);
+            errorOpen = FunctionsInterfaz.openBitalinoInInterface(macAddress, samplingRate);
+            this.ErrorText.setVisible(false);
+            int a = this.SignalInput.getSelectedIndex();
+            er = FunctionsInterfaz.checkChannel(a, bitalino);
+            if (errorOpen || er) {
                 this.ErrorText.setForeground(Color.red);
                 this.ErrorText.setText("Something went wrong");
                 this.ErrorText.setVisible(true);
+            } else {
+
             }
 
+        }*/
+
+    }//GEN-LAST:event_AdqButActionPerformed
+
+    private void SaveButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButActionPerformed
+        boolean e = checkMacInterface();
+        if (!e) {
+            PatientInsideWindow rd = new PatientInsideWindow();
+            this.setVisible(false);
+            rd.setVisible(true);
         }
-
-    }//GEN-LAST:event_FindButActionPerformed
-
-    private void SamplingRateInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SamplingRateInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SamplingRateInputActionPerformed
-
-    private void SignalInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignalInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SignalInputActionPerformed
+    }//GEN-LAST:event_SaveButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,17 +244,30 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
         });
     }
 
+    public boolean checkMacInterface() {
+        boolean errorMac = false;
+        String macAddress = this.MacInput.getText();
+        if (!FunctionsInterfaz.checkMac(macAddress)) {
+            this.MacError.setForeground(Color.red);
+            this.MacError.setVisible(true);
+            errorMac = true;
+        } else {
+            this.MacError.setVisible(false);
+            errorMac = false;
+        }
+        if (!errorMac) {
+            PatientPrincipalWindow.patient.setMacBitalino(macAddress);
+        }
+        return errorMac;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AdqBut;
     private javax.swing.JButton BackBut;
-    private javax.swing.JLabel ErrorText;
-    private javax.swing.JButton FindBut;
     private javax.swing.JLabel MacError;
     private javax.swing.JTextField MacInput;
-    private javax.swing.JLabel SamplingError;
-    private javax.swing.JTextField SamplingRateInput;
-    private javax.swing.JComboBox<String> SignalInput;
+    private javax.swing.JButton SaveBut;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

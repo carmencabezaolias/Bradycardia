@@ -5,15 +5,11 @@
  */
 package Main;
 
-import BITalino.BITalino;
-
 /**
  *
  * @author carmen
  */
 public class Main {
-
-    public BITalino bitalino;
 
     /**
      * @param args the command line arguments
