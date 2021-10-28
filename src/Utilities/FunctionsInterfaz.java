@@ -8,7 +8,6 @@ package Utilities;
 import BITalino.BITalino;
 import BITalino.BITalinoException;
 import BITalino.Frame;
-import interf.PatientChooseSignal;
 import interf.PatientGetData;
 import interf.PatientPrincipalWindow;
 import java.util.logging.Level;
@@ -56,9 +55,8 @@ public class FunctionsInterfaz {
 
     public static boolean configuredBitalino(String macAddress, int sampling, int channel) {
         boolean error = false;
-        BITalino bitalino = new BITalino();
         try {
-            bitalino.open(macAddress, sampling);
+            PatientPrincipalWindow.patient.getBitalino().open(macAddress, sampling);
             error = false;
         } catch (BITalinoException be) {
             error = true;
@@ -67,15 +65,15 @@ public class FunctionsInterfaz {
             switch (channel) {
                 case 0:
                     int[] channelsToAcquire = {1};
-                    bitalino.start(channelsToAcquire);
+                    PatientPrincipalWindow.patient.getBitalino().start(channelsToAcquire);
                     break;
                 case 1:
                     int[] channelsToAcquire2 = {4};
-                    bitalino.start(channelsToAcquire2);
+                    PatientPrincipalWindow.patient.getBitalino().start(channelsToAcquire2);
                     break;
                 case 2:
                     int[] channelsToAcquire3 = {1, 4};
-                    bitalino.start(channelsToAcquire3);
+                    PatientPrincipalWindow.patient.getBitalino().start(channelsToAcquire3);
                     break;
                 default:
                     error = true;
@@ -110,7 +108,7 @@ public class FunctionsInterfaz {
 
             try {
                 //Read a block of 100 samples
-                frame = PatientChooseSignal.bitalino.read(100);
+                frame = PatientPrincipalWindow.patient.getBitalino().read(100);
 
                 System.out.println("size block: " + frame.length);
 
@@ -134,16 +132,22 @@ public class FunctionsInterfaz {
 
     public static void stopDataBitalino() {
         try {
-            PatientChooseSignal.bitalino.stop();
+            PatientPrincipalWindow.patient.getBitalino().stop();
         } catch (BITalinoException ex) {
             Logger.getLogger(PatientGetData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    public BITalino createBitalinoPatient() {
+        BITalino bitalino = new BITalino();
+        return bitalino;
+    }
+
     public static boolean openBitalinoInInterface(String macAddress, int samplingRate) {
         boolean error = false;
+
         try {
-            PatientChooseSignal.bitalino.open(macAddress, samplingRate);
+            PatientPrincipalWindow.patient.getBitalino().open(macAddress, samplingRate);
             error = false;
         } catch (BITalinoException ex) {
             error = true;

@@ -5,6 +5,8 @@
  */
 package Pojos;
 
+import BITalino.BITalino;
+
 /**
  *
  * @author carmen
@@ -13,10 +15,10 @@ public class Patient {
 
     private int ID;
     String fullName;
-
     String username;
     private byte[] password;
     private String macBitalino;
+    private BITalino bitalino; //no guardar en base de datos
 
     public Patient(String username, String fullname, byte[] password) {
         super();
@@ -73,6 +75,14 @@ public class Patient {
 
     public String getMacBitalino() {
         return macBitalino;
+    }
+
+    public BITalino getBitalino() {
+        return bitalino;
+    }
+
+    public void setNewBitalino() {
+        this.bitalino = new BITalino();
     }
 
 }

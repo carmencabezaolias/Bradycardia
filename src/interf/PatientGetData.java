@@ -20,7 +20,6 @@ public class PatientGetData extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        FunctionsInterfaz.getDataBitalino();
 
     }
 
@@ -101,6 +100,7 @@ public class PatientGetData extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void StopButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopButActionPerformed
+
         FunctionsInterfaz.stopDataBitalino();
     }//GEN-LAST:event_StopButActionPerformed
 
