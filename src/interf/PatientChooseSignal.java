@@ -129,7 +129,6 @@ public class PatientChooseSignal extends javax.swing.JFrame {
     }//GEN-LAST:event_SamplingInputActionPerformed
 
     private void StartButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButActionPerformed
-        PatientPrincipalWindow.patient.setNewBitalino();
         int sam = this.SamplingInput.getSelectedIndex();
         int samplingRate = FunctionsInterfaz.getSampling(sam);
         boolean error1 = FunctionsInterfaz.configuredBitalino(PatientPrincipalWindow.patient.getMacBitalino(), samplingRate, this.SignalInput.getSelectedIndex());

@@ -5,7 +5,6 @@
  */
 package Utilities;
 
-import BITalino.BITalino;
 import BITalino.BITalinoException;
 import BITalino.Frame;
 import interf.PatientGetData;
@@ -38,7 +37,6 @@ public class FunctionsInterfaz {
 
     public static int getSampling(int i) {
         int sampling = 0;
-        System.out.println("El chose: " + i);
         switch (i) {
             case 0:
                 sampling = 10;
@@ -55,10 +53,13 @@ public class FunctionsInterfaz {
 
     public static boolean configuredBitalino(String macAddress, int sampling, int channel) {
         boolean error = false;
+        PatientPrincipalWindow.patient.setNewBitalino();
         try {
+            System.out.println("samping: " + sampling); //por si acaso
             PatientPrincipalWindow.patient.getBitalino().open(macAddress, sampling);
             error = false;
         } catch (BITalinoException be) {
+            System.out.println("Error en configuredBitalino 1");
             error = true;
         }
         try {
@@ -66,20 +67,24 @@ public class FunctionsInterfaz {
                 case 0:
                     int[] channelsToAcquire = {1};
                     PatientPrincipalWindow.patient.getBitalino().start(channelsToAcquire);
+                    getDataBitalino(); // esto se va a llamar desde la interfaz pero de momento para ver
                     break;
                 case 1:
                     int[] channelsToAcquire2 = {4};
                     PatientPrincipalWindow.patient.getBitalino().start(channelsToAcquire2);
+                    getDataBitalino();
                     break;
                 case 2:
                     int[] channelsToAcquire3 = {1, 4};
                     PatientPrincipalWindow.patient.getBitalino().start(channelsToAcquire3);
+                    getDataBitalino();
                     break;
-                default:
-                    error = true;
-                    break;
+                // default:
+                //    error = true;
+                //   break;
             }
         } catch (Throwable ex) {
+            System.out.println("Error en configuredBitalino 2");
             error = true;
         }
         return error;
@@ -104,14 +109,11 @@ public class FunctionsInterfaz {
 
     public static void getDataBitalino() {
         Frame[] frame;
-        for (int j = 0; j < 10000000; j++) {
-
-            try {
+        try {
+            for (int j = 0; j < 10000000; j++) {
                 //Read a block of 100 samples
                 frame = PatientPrincipalWindow.patient.getBitalino().read(100);
-
                 System.out.println("size block: " + frame.length);
-
                 //Print the samples
                 for (int i = 0; i < frame.length; i++) {
                     System.out.println((j * 100 + i) + " seq: " + frame[i].seq + " "
@@ -124,9 +126,10 @@ public class FunctionsInterfaz {
                     // se podria devolver este a para imprimirlo por pantalla.
 
                 }
-            } catch (BITalinoException ex) {
-                Logger.getLogger(FunctionsInterfaz.class.getName()).log(Level.SEVERE, null, ex);
             }
+            PatientPrincipalWindow.patient.getBitalino().stop(); // esto se quita cuando este la interfaz
+        } catch (BITalinoException ex) {
+            Logger.getLogger(FunctionsInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -137,12 +140,7 @@ public class FunctionsInterfaz {
             Logger.getLogger(PatientGetData.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    public BITalino createBitalinoPatient() {
-        BITalino bitalino = new BITalino();
-        return bitalino;
-    }
-
+    /*
     public static boolean openBitalinoInInterface(String macAddress, int samplingRate) {
         boolean error = false;
 
@@ -154,6 +152,6 @@ public class FunctionsInterfaz {
             Logger.getLogger(FunctionsInterfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
         return error;
-    }
+    }*/
 
 }

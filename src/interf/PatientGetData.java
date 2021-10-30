@@ -111,7 +111,8 @@ public class PatientGetData extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButActionPerformed
 
     private void StartButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButActionPerformed
-        FunctionsInterfaz.getDataBitalino();// TODO add your handling code here:
+        //FunctionsInterfaz.getDataBitalino();// TODO add your handling code here:
+
     }//GEN-LAST:event_StartButActionPerformed
 
     /**

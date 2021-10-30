@@ -26,6 +26,7 @@ public class Patient {
         this.username = username;
         this.password = password;
         this.macBitalino = null;
+        this.bitalino = new BITalino();
     }
 
     public Patient() {
@@ -39,6 +40,8 @@ public class Patient {
         super();
         this.fullName = fullName;
         this.username = username;
+        this.macBitalino = null;
+        this.bitalino = new BITalino();
     }
 
     public String getFullName() {
