@@ -101,7 +101,6 @@ public class PatientGetData extends javax.swing.JFrame {
 
     private void StopButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopButActionPerformed
 
-        FunctionsInterfaz.stopDataBitalino();
     }//GEN-LAST:event_StopButActionPerformed
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed
@@ -111,7 +110,10 @@ public class PatientGetData extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButActionPerformed
 
     private void StartButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButActionPerformed
-        //FunctionsInterfaz.getDataBitalino();// TODO add your handling code here:
+        while (!this.StopBut.isSelected() || !this.BackBut.isSelected()) {
+            this.OutputText.setText(this.OutputText.getText() + FunctionsInterfaz.getDataBitalino2());
+        }
+        FunctionsInterfaz.stopDataBitalino();
 
     }//GEN-LAST:event_StartButActionPerformed
 

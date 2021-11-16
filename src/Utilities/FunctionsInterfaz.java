@@ -133,6 +133,26 @@ public class FunctionsInterfaz {
         }
     }
 
+    //probar asi
+    public static String getDataBitalino2() {
+        Frame[] frame;
+        String a;
+        try {
+            //Read a block of 100 samples
+            frame = PatientPrincipalWindow.patient.getBitalino().read(1);
+            a = frame[0].seq + " "
+                    + frame[0].analog[0] + " "
+                    + frame[0].analog[1] + " ";
+            // se podria devolver este a para imprimirlo por pantalla.
+
+            //PatientPrincipalWindow.patient.getBitalino().stop(); // esto se quita cuando este la interfaz
+        } catch (BITalinoException ex) {
+            a = "Error";
+            Logger.getLogger(FunctionsInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return a;
+    }
+
     public static void stopDataBitalino() {
         try {
             PatientPrincipalWindow.patient.getBitalino().stop();
