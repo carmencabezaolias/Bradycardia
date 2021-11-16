@@ -17,13 +17,26 @@ public class Patient {
     String fullName;
     String username;
     String address;
-    Integer phonenumber;
+    String phonenumber;
     String email;
     String diagnosis;
     Integer docId;
     private byte[] password;
     private String macBitalino;
     private BITalino bitalino; //no guardar en base de datos
+
+    public Patient(int id, String username, String fullname, String adress, String phonenumber, String email, String diagnosis, String mac) {
+        super();
+        this.ID = id;
+        this.fullName = fullName;
+        this.username = username;
+        this.address = adress;
+        this.phonenumber = phonenumber;
+        this.email = email;
+        this.diagnosis = diagnosis;
+        this.macBitalino = mac;
+        this.bitalino = new BITalino();
+    }
 
     public Patient(String username, String fullname, byte[] password) {
         super();
@@ -64,7 +77,8 @@ public class Patient {
     public void setUsername(String username) {
         this.username = username;
     }
-public String getAddress() {
+
+    public String getAddress() {
         return address;
     }
 
@@ -72,11 +86,11 @@ public String getAddress() {
         this.address = address;
     }
 
-    public Integer getPhonenumber() {
+    public String getPhonenumber() {
         return phonenumber;
     }
 
-    public void setPhonenumber(Integer phonenumber) {
+    public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
     }
 
@@ -103,6 +117,7 @@ public String getAddress() {
     public void setDocId(Integer docId) {
         this.docId = docId;
     }
+
     public void setID(int ID) {
         this.ID = ID;
     }

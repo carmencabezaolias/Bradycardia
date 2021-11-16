@@ -5,7 +5,7 @@
  */
 package interf;
 
-import Utilities.FunctionsInterfaz;
+import Utilities.FunctionsBitalino;
 import java.awt.Color;
 
 /**
@@ -130,8 +130,8 @@ public class PatientChooseSignal extends javax.swing.JFrame {
 
     private void StartButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButActionPerformed
         int sam = this.SamplingInput.getSelectedIndex();
-        int samplingRate = FunctionsInterfaz.getSampling(sam);
-        boolean error1 = FunctionsInterfaz.configuredBitalino(PatientPrincipalWindow.patient.getMacBitalino(), samplingRate, this.SignalInput.getSelectedIndex());
+        int samplingRate = FunctionsBitalino.getSampling(sam);
+        boolean error1 = FunctionsBitalino.configuredBitalino(PatientPrincipalWindow.patient.getMacBitalino(), samplingRate, this.SignalInput.getSelectedIndex());
         if (error1) {
             this.ErrorText.setForeground(Color.red);
             this.ErrorText.setVisible(true);

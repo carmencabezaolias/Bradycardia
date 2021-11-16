@@ -5,7 +5,7 @@
  */
 package interf;
 
-import Utilities.FunctionsInterfaz;
+import Utilities.FunctionsBitalino;
 import java.awt.Color;
 
 /**
@@ -247,7 +247,7 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
     public boolean checkMacInterface() {
         boolean errorMac = false;
         String macAddress = this.MacInput.getText();
-        if (!FunctionsInterfaz.checkMac(macAddress)) {
+        if (!FunctionsBitalino.checkMac(macAddress)) {
             this.MacError.setForeground(Color.red);
             this.MacError.setVisible(true);
             errorMac = true;

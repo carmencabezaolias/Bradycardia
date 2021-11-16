@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package db.interfaces;
+
 import Pojos.Patient;
 
 /**
@@ -11,7 +12,14 @@ import Pojos.Patient;
  * @author Cristina
  */
 public interface PatientManager {
+
     public void createPatient(Patient pat);
+
     public void deletePatient(Integer id);
+
     public void modifyPatient(Patient pat);
+
+    public Patient getPatientById(int id);
+
+    public Patient getPatientByUsername(String Usernae);
 }

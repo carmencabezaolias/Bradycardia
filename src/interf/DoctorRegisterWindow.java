@@ -177,7 +177,7 @@ public class DoctorRegisterWindow extends javax.swing.JFrame {
 
     private void SaveButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButActionPerformed
         boolean error1, error2 = false;
-        boolean comprobation = Exceptions.checkUsername((String) this.InputFullName.getText());// TODO add your handling code here:
+        boolean comprobation = Exceptions.checkUsername(false, (String) this.InputFullName.getText());// TODO add your handling code here:
         if (!comprobation) {
             this.ErrorText.setForeground(Color.red);
             this.ErrorText.setVisible(true);

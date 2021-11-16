@@ -6,6 +6,8 @@
 package interf;
 
 import Pojos.Patient;
+import db.interfaces.DBManager;
+import db.interfaces.PatientManager;
 
 /**
  *
@@ -14,6 +16,8 @@ import Pojos.Patient;
 public class PatientPrincipalWindow extends javax.swing.JFrame {
 
     public static Patient patient = new Patient();
+    public static DBManager dbManager;
+    public static PatientManager patientManager;
 
     public PatientPrincipalWindow() {
         initComponents();
@@ -128,6 +132,9 @@ public class PatientPrincipalWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
+                dbManager.connect();
+                patientManager = dbManager.getPatientManager();
                 new PatientPrincipalWindow().setVisible(true);
             }
         });

@@ -5,7 +5,7 @@
  */
 package interf;
 
-import Utilities.FunctionsInterfaz;
+import Utilities.FunctionsBitalino;
 
 /**
  *
@@ -111,9 +111,9 @@ public class PatientGetData extends javax.swing.JFrame {
 
     private void StartButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButActionPerformed
         while (!this.StopBut.isSelected() || !this.BackBut.isSelected()) {
-            this.OutputText.setText(this.OutputText.getText() + FunctionsInterfaz.getDataBitalino2());
+            this.OutputText.setText(this.OutputText.getText() + FunctionsBitalino.getDataBitalino2());
         }
-        FunctionsInterfaz.stopDataBitalino();
+        FunctionsBitalino.stopDataBitalino();
 
     }//GEN-LAST:event_StartButActionPerformed
 

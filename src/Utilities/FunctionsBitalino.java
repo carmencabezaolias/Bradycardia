@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author carmen
  */
-public class FunctionsInterfaz {
+public class FunctionsBitalino {
 
     /*public static boolean checkBitalino(String macAddress, int sampling) {
         BITalino bitalino = null;
@@ -29,9 +29,42 @@ public class FunctionsInterfaz {
         }
         return error;
     }*/
-    public static void introducePatient(String name, String username, char[] Pass) {
-        PatientPrincipalWindow.patient.setFullName(name);//guardar en base de datos
-        PatientPrincipalWindow.patient.setUsername(username);
+    public static boolean[] introducePatient(String name, String username, String email, String adress, String phone, char[] password) {
+        boolean[] error = null;
+
+        if (!Exceptions.checkString(name)) {
+            error[0] = true;
+        } else {
+            error[0] = false;
+        }
+
+        if (!Exceptions.checkUsername(username)) {
+            error[1] = true;
+        } else {
+            error[1] = false;
+        }
+
+        if (!Exceptions.checkEmail(email)) {
+            error[2] = true;
+        } else {
+            error[2] = false;
+        }
+        if (!Exceptions.checkPhone(phone)) {
+            error[3] = true;
+        } else {
+            error[3] = false;
+        }
+        if (!error[0] && !error[1] && !error[2] && !error[3]) {
+            PatientPrincipalWindow.patient.setFullName(name);//guardar en base de datos
+            PatientPrincipalWindow.patient.setUsername(username);
+            PatientPrincipalWindow.patient.setAddress(adress);
+            PatientPrincipalWindow.patient.setEmail(email);
+            PatientPrincipalWindow.patient.setPhonenumber(phone);
+            //PatientPrincipalWindow.patient.setPassword(password);
+            PatientPrincipalWindow.patientManager.createPatient(PatientPrincipalWindow.patient);
+
+        }
+        return error;
         //lo del hash con las pass
     }
 
@@ -68,7 +101,7 @@ public class FunctionsInterfaz {
                     int[] channelsToAcquire = {1};
                     PatientPrincipalWindow.patient.getBitalino().start(channelsToAcquire);
                     System.out.println("estamos configurados");
-                   // getDataBitalino(); // esto se va a llamar desde la interfaz pero de momento para ver
+                    // getDataBitalino(); // esto se va a llamar desde la interfaz pero de momento para ver
                     break;
                 case 1:
                     int[] channelsToAcquire2 = {4};
@@ -130,7 +163,7 @@ public class FunctionsInterfaz {
             }
             PatientPrincipalWindow.patient.getBitalino().stop(); // esto se quita cuando este la interfaz
         } catch (BITalinoException ex) {
-            Logger.getLogger(FunctionsInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FunctionsBitalino.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -149,7 +182,7 @@ public class FunctionsInterfaz {
             //PatientPrincipalWindow.patient.getBitalino().stop(); // esto se quita cuando este la interfaz
         } catch (BITalinoException ex) {
             a = "Error";
-            Logger.getLogger(FunctionsInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FunctionsBitalino.class.getName()).log(Level.SEVERE, null, ex);
         }
         return a;
     }

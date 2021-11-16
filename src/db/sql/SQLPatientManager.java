@@ -34,7 +34,7 @@ public class SQLPatientManager implements PatientManager {
             stm.setString(2, pat.getFullName());
             stm.setString(3, pat.getUsername());
             stm.setString(4, pat.getAddress());
-            stm.setInt(5, pat.getPhonenumber());
+            stm.setString(5, pat.getPhonenumber());
             stm.setString(6, pat.getEmail());
             stm.setString(7, pat.getDiagnosis());
             stm.setInt(3, pat.getDocId());
@@ -71,7 +71,7 @@ public class SQLPatientManager implements PatientManager {
             stm.setString(1, pat.getFullName());
             stm.setString(2, pat.getUsername());
             stm.setString(3, pat.getAddress());
-            stm.setInt(4, pat.getPhonenumber());
+            stm.setString(4, pat.getPhonenumber());
             stm.setString(5, pat.getEmail());
             stm.setInt(6, pat.getDocId());
             stm.setString(7, pat.getMacBitalino());
@@ -84,10 +84,10 @@ public class SQLPatientManager implements PatientManager {
         }
     }
 
-    public void readPatient(Integer id) {
+    public Patient getPatientById(int id) {
 
         String sqlpatient = "SELECT * FROM Patient WHERE idPatient=?";
-
+        Patient patient = new Patient();
         try {
             PreparedStatement stm = c.prepareStatement(sqlpatient);
             stm.setInt(1, id);
@@ -98,16 +98,49 @@ public class SQLPatientManager implements PatientManager {
                 String name = rs.getString("Name");
                 String username = rs.getString("Username");
                 String address = rs.getString("Address");
-                Integer phoneNumber = rs.getInt("PhoneNumber");
+                String phoneNumber = rs.getString("PhoneNumber");
                 String email = rs.getString("Email");
                 String diagnosis = rs.getString("Diagnosis");
                 String macBitalino = rs.getString("macBitalino");
                 //obtener nombre del doctor
+                patient = new Patient(patID, name, username, address, phoneNumber, email, diagnosis, macBitalino);
+
             }
             rs.close();
             stm.close();
         } catch (SQLException ex) {
+            patient = null;
             Logger.getLogger(SQLPatientManager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return patient;
+    }
+
+    public Patient getPatientByUsername(String username) {
+        Patient patient = new Patient();
+        try {
+            String sqlpatient = "SELECT * FROM Patient WHERE nombre=?";
+
+            PreparedStatement stm = c.prepareStatement(sqlpatient);
+            stm.setString(1, username);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Integer patID = rs.getInt("ID");
+                String name = rs.getString("Name");
+                String username2 = rs.getString("Username");
+                String address = rs.getString("Address");
+                String phoneNumber = rs.getString("PhoneNumber");
+                String email = rs.getString("Email");
+                String diagnosis = rs.getString("Diagnosis");
+                String macBitalino = rs.getString("macBitalino");
+                // meter contraseña
+                patient = new Patient(patID, name, username2, address, phoneNumber, email, diagnosis, macBitalino);
+            }
+
+        } catch (SQLException e) {
+            patient = null;
+            e.printStackTrace();
+        }
+
+        return patient;
     }
 }

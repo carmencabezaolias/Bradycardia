@@ -5,8 +5,7 @@
  */
 package interf;
 
-import Utilities.Exceptions;
-import Utilities.FunctionsInterfaz;
+import Utilities.FunctionsPatient;
 import java.awt.Color;
 import java.util.Arrays;
 
@@ -20,7 +19,7 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.ErrorText.setVisible(false);
+        this.ErrorUsername.setVisible(false);
         this.PasswordError.setVisible(false);
     }
 
@@ -33,6 +32,8 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel7 = new javax.swing.JLabel();
+        InputFullName2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -41,11 +42,28 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
         SaveBut = new javax.swing.JButton();
         InputFullName = new javax.swing.JTextField();
         InputUsername = new javax.swing.JTextField();
-        ErrorText = new javax.swing.JLabel();
+        ErrorUsername = new javax.swing.JLabel();
         InputPassword = new javax.swing.JPasswordField();
         Input2Password = new javax.swing.JPasswordField();
         PasswordError = new javax.swing.JLabel();
         BackBut = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        Inputemail = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        inputAdress = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        inputPhone = new javax.swing.JTextField();
+        ErrorEmail = new javax.swing.JLabel();
+        ErrorPhone = new javax.swing.JLabel();
+        ErrorName = new javax.swing.JLabel();
+
+        jLabel7.setText("Email:");
+
+        InputFullName2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputFullName2ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,7 +96,7 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
             }
         });
 
-        ErrorText.setText("This username already exist");
+        ErrorUsername.setText("This username already exist");
 
         PasswordError.setText("Passwords are not the same");
 
@@ -89,65 +107,138 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setText("Email:");
+
+        Inputemail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputemailActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Adress:");
+
+        inputAdress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputAdressActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Phone number:");
+
+        inputPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputPhoneActionPerformed(evt);
+            }
+        });
+
+        ErrorEmail.setText("Right a correct email");
+
+        ErrorPhone.setText("Right a correct phone number");
+
+        ErrorName.setText("Enter a name without numbers");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(Input2Password, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(PasswordError, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(InputFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ErrorName))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel6))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Inputemail, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                            .addComponent(InputUsername)
+                            .addComponent(inputAdress))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ErrorUsername)
+                            .addComponent(ErrorEmail)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(49, 49, 49)
+                                .addComponent(InputPassword))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ErrorPhone)))
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(BackBut)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SaveBut)
-                .addGap(53, 53, 53))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addGap(18, 18, 18)
-                            .addComponent(Input2Password))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3))
-                            .addGap(51, 51, 51)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1)
-                                    .addComponent(InputFullName)
-                                    .addComponent(InputUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE))
-                                .addComponent(InputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(PasswordError, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ErrorText))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(213, 213, 213))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addGap(25, 25, 25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InputFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(23, 23, 23)
+                    .addComponent(jLabel3)
+                    .addComponent(ErrorName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InputUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ErrorText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel2)
+                    .addComponent(ErrorUsername))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Inputemail, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ErrorEmail)
+                    .addComponent(jLabel6))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel8)
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inputAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(3, 3, 3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(inputPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ErrorPhone))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(InputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addComponent(PasswordError)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(Input2Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(Input2Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(PasswordError)))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SaveBut)
                     .addComponent(BackBut))
@@ -166,33 +257,56 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_InputUsernameActionPerformed
 
     private void SaveButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButActionPerformed
-        boolean error1, error2 = false;
-        boolean comprobation = Exceptions.checkUsername((String) this.InputFullName.getText());// TODO add your handling code here:
-        if (!comprobation) {
-            this.ErrorText.setForeground(Color.red);
-            this.ErrorText.setVisible(true);
-            //porque no es un numero!
-            error1 = true;
+        boolean[] error = FunctionsPatient.introducePatient(this.InputFullName.getText(), this.InputUsername.getText(), this.Inputemail.getText(), this.inputAdress.getText(), this.inputPhone.getText(), this.InputPassword.getPassword());
+        boolean next = true;
+        int i = 0;
+
+        if (error[0]) {
+            this.ErrorName.setForeground(Color.red);
+            this.ErrorName.setVisible(true);
+            next = false;
         } else {
-            this.ErrorText.setVisible(false);
-            error1 = false;
+            this.ErrorName.setVisible(false);
+        }
+
+        if (error[1]) {
+            this.ErrorUsername.setForeground(Color.red);
+            this.ErrorUsername.setVisible(true);
+            next = false;
+        } else {
+            this.ErrorUsername.setVisible(false);
+        }
+
+        if (error[2]) {
+            this.ErrorEmail.setForeground(Color.red);
+            this.ErrorEmail.setVisible(true);
+            next = false;
+        } else {
+            this.ErrorEmail.setVisible(false);
+        }
+
+        if (error[3]) {
+            this.ErrorPhone.setForeground(Color.red);
+            this.ErrorPhone.setVisible(true);
+            next = false;
+        } else {
+            this.ErrorPhone.setVisible(false);
         }
 
         if (Arrays.equals(this.InputPassword.getPassword(), this.Input2Password.getPassword())) {
             this.PasswordError.setVisible(false);
-            error2 = false;
+
         } else {
-            error2 = true;
+            next = false;
             this.PasswordError.setForeground(Color.red);
             this.PasswordError.setVisible(true);
         }
-        if (!error1 && !error2) {
-            FunctionsInterfaz.introducePatient(this.InputFullName.getText(), this.InputFullName.getText(), this.InputPassword.getPassword());
+        if (next) {
             PatientBitalinoWindow rd = new PatientBitalinoWindow();
             this.setVisible(false);
             rd.setVisible(true);
-        }
 
+        }
     }//GEN-LAST:event_SaveButActionPerformed
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed
@@ -200,6 +314,22 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
         this.setVisible(false);
         rd.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_BackButActionPerformed
+
+    private void InputemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputemailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputemailActionPerformed
+
+    private void InputFullName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputFullName2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InputFullName2ActionPerformed
+
+    private void inputAdressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAdressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputAdressActionPerformed
+
+    private void inputPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputPhoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,17 +371,28 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackBut;
-    private javax.swing.JLabel ErrorText;
+    private javax.swing.JLabel ErrorEmail;
+    private javax.swing.JLabel ErrorName;
+    private javax.swing.JLabel ErrorPhone;
+    private javax.swing.JLabel ErrorUsername;
     private javax.swing.JPasswordField Input2Password;
     private javax.swing.JTextField InputFullName;
+    private javax.swing.JTextField InputFullName2;
     private javax.swing.JPasswordField InputPassword;
     private javax.swing.JTextField InputUsername;
+    private javax.swing.JTextField Inputemail;
     private javax.swing.JLabel PasswordError;
     private javax.swing.JButton SaveBut;
+    private javax.swing.JTextField inputAdress;
+    private javax.swing.JTextField inputPhone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
