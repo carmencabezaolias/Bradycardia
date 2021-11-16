@@ -16,6 +16,11 @@ public class Patient {
     private int ID;
     String fullName;
     String username;
+    String address;
+    Integer phonenumber;
+    String email;
+    String diagnosis;
+    Integer docId;
     private byte[] password;
     private String macBitalino;
     private BITalino bitalino; //no guardar en base de datos
@@ -59,7 +64,45 @@ public class Patient {
     public void setUsername(String username) {
         this.username = username;
     }
+public String getAddress() {
+        return address;
+    }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Integer getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(Integer phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    public Integer getDocId() {
+        return docId;
+    }
+
+    public void setDocId(Integer docId) {
+        this.docId = docId;
+    }
     public void setID(int ID) {
         this.ID = ID;
     }

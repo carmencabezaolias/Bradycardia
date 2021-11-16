@@ -67,7 +67,8 @@ public class FunctionsInterfaz {
                 case 0:
                     int[] channelsToAcquire = {1};
                     PatientPrincipalWindow.patient.getBitalino().start(channelsToAcquire);
-                    getDataBitalino(); // esto se va a llamar desde la interfaz pero de momento para ver
+                    System.out.println("estamos configurados");
+                   // getDataBitalino(); // esto se va a llamar desde la interfaz pero de momento para ver
                     break;
                 case 1:
                     int[] channelsToAcquire2 = {4};
