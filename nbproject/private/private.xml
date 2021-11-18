@@ -3,25 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/DoctorRegisterWindow.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/Utilities/FunctionsBitalino.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/db/interfaces/DoctorManager.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/Utilities/FunctionsPatient.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/db/interfaces/PatientManager.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/db/interfaces/DBManager.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientChooseSignal.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/db/sql/SQLPatientManager.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/test/BITalino/BITalinoTest.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientRegisterWindow.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientBitalinoWindow.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/Pojos/Patient.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientGetData.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientLoginWindow.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/Utilities/Exceptions.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientInsideWindow.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/test/db/sql/SQLPatientManagerTest.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/Pojos/Doctor.java</file>
-            <file>file:/Users/carmen/Desktop/UNI/4.CUARTO/TELEMED/BradycardiaGroup4/src/interf/PatientPrincipalWindow.java</file>
+            <file>file:/C:/Users/Cristina/Documents/NetBeansProjects/BradycardiaGroup4/BradycardiaGroup4/src/Utilities/FunctionsBitalino.java</file>
+            <file>file:/C:/Users/Cristina/Documents/NetBeansProjects/BradycardiaGroup4/BradycardiaGroup4/src/Utilities/FunctionsPatient.java</file>
+            <file>file:/C:/Users/Cristina/Documents/NetBeansProjects/BradycardiaGroup4/BradycardiaGroup4/src/interf/PatientInsideWindow.java</file>
+            <file>file:/C:/Users/Cristina/Documents/NetBeansProjects/BradycardiaGroup4/BradycardiaGroup4/src/interf/PatientBitalinoWindow.java</file>
+            <file>file:/C:/Users/Cristina/Documents/NetBeansProjects/BradycardiaGroup4/BradycardiaGroup4/src/interf/PatientGetData.java</file>
+            <file>file:/C:/Users/Cristina/Documents/NetBeansProjects/BradycardiaGroup4/BradycardiaGroup4/src/db/interfaces/PatientManager.java</file>
+            <file>file:/C:/Users/Cristina/Documents/NetBeansProjects/BradycardiaGroup4/BradycardiaGroup4/src/interf/PatientPrincipalWindow.java</file>
+            <file>file:/C:/Users/Cristina/Documents/NetBeansProjects/BradycardiaGroup4/BradycardiaGroup4/src/Utilities/Exceptions.java</file>
+            <file>file:/C:/Users/Cristina/Documents/NetBeansProjects/BradycardiaGroup4/BradycardiaGroup4/src/db/sql/SQLManager.java</file>
+            <file>file:/C:/Users/Cristina/Documents/NetBeansProjects/BradycardiaGroup4/BradycardiaGroup4/src/interf/PatientLoginWindow.java</file>
+            <file>file:/C:/Users/Cristina/Documents/NetBeansProjects/BradycardiaGroup4/BradycardiaGroup4/src/db/sql/SQLPatientManager.java</file>
+            <file>file:/C:/Users/Cristina/Documents/NetBeansProjects/BradycardiaGroup4/BradycardiaGroup4/src/interf/PatientChooseSignal.java</file>
         </group>
     </open-files>
 </project-private>

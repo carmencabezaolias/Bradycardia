@@ -21,7 +21,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.ErrorLogin.setVisible(true);
+        this.ErrorLogin.setVisible(false);
     }
 
     /**
@@ -50,7 +50,11 @@ public class PatientLoginWindow extends javax.swing.JFrame {
 
         jLabel3.setText("Password: ");
 
-        inputUser.setText("   ");
+        inputUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputUserActionPerformed(evt);
+            }
+        });
 
         LoginBut.setText("Login");
         LoginBut.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +131,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
             this.ErrorLogin.setForeground(Color.red);
             this.ErrorLogin.setVisible(true);
         } else {
-            this.ErrorLogin.setVisible(true);
+            this.ErrorLogin.setVisible(false);
             PatientInsideWindow rd = new PatientInsideWindow();
             this.setVisible(false);
             rd.setVisible(true);
@@ -139,6 +143,10 @@ public class PatientLoginWindow extends javax.swing.JFrame {
         this.setVisible(false);
         rd.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_BackButActionPerformed
+
+    private void inputUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputUserActionPerformed
 
     /**
      * @param args the command line arguments

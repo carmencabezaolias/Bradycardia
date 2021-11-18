@@ -8,6 +8,7 @@ package interf;
 import Pojos.Patient;
 import db.interfaces.DBManager;
 import db.interfaces.PatientManager;
+import db.sql.SQLManager;
 
 /**
  *
@@ -132,10 +133,15 @@ public class PatientPrincipalWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-
+                System.out.println("entra");
+                dbManager = new SQLManager();
+                System.out.println("error 1");
                 dbManager.connect();
+                System.out.println("error 2");
                 patientManager = dbManager.getPatientManager();
+                System.out.println("err3");
                 new PatientPrincipalWindow().setVisible(true);
+                System.out.println("er4");
             }
         });
     }

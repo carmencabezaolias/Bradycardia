@@ -71,6 +71,11 @@ public class PatientChooseSignal extends javax.swing.JFrame {
         });
 
         BackBut.setText("Back");
+        BackBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,6 +146,12 @@ public class PatientChooseSignal extends javax.swing.JFrame {
             rd.setVisible(true);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_StartButActionPerformed
+
+    private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed
+ PatientInsideWindow rd = new PatientInsideWindow();
+        this.setVisible(false);
+        rd.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_BackButActionPerformed
 
     /**
      * @param args the command line arguments
