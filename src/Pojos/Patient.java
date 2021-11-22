@@ -25,15 +25,16 @@ public class Patient {
     private String macBitalino;
     private BITalino bitalino; //no guardar en base de datos
 
-    public Patient(int id, String username, String fullname, String adress, String phonenumber, String email, String diagnosis, String mac) {
+    public Patient(int id, String fullname,String username, String adress, String phonenumber, String email, String diagnosis, int docId, String mac) {
         super();
         this.ID = id;
-        this.fullName = fullName;
+        this.fullName = fullname;
         this.username = username;
         this.address = adress;
         this.phonenumber = phonenumber;
         this.email = email;
         this.diagnosis = diagnosis;
+        this.docId=docId;
         this.macBitalino = mac;
         this.bitalino = new BITalino();
     }

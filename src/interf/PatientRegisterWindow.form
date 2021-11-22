@@ -267,12 +267,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="ErrorEmail">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Right a correct email"/>
+        <Property name="text" type="java.lang.String" value="Write a correct email"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="ErrorPhone">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Right a correct phone number"/>
+        <Property name="text" type="java.lang.String" value="Write a correct phone number"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="ErrorName">

@@ -62,6 +62,7 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
 
         jLabel1.setText("INSERT YOUR BITALINO MAC:");
 
+        MacInput.setText("98:D1:91:FD:69:49");
         MacInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MacInputActionPerformed(evt);
@@ -246,7 +247,7 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
 
     public boolean checkMacInterface() {
         boolean errorMac = false;
-        System.out.println( "a: "+ PatientPrincipalWindow.patient.getMacBitalino().toString());
+        //System.out.println( "a: "+ PatientPrincipalWindow.patient.getMacBitalino().toString());
         String macAddress = this.MacInput.getText();
         if (!FunctionsBitalino.checkMac(macAddress)) {
             this.MacError.setForeground(Color.red);
@@ -258,9 +259,10 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
         }
         if (!errorMac) {
             
-            System.out.println( PatientPrincipalWindow.patient.getMacBitalino().toString());
+      //      System.out.println( PatientPrincipalWindow.patient.getMacBitalino().toString());
             PatientPrincipalWindow.patient.setMacBitalino(macAddress);
             System.out.println( PatientPrincipalWindow.patient.getMacBitalino().toString());
+            System.out.println(PatientPrincipalWindow.patient.getID());
             PatientPrincipalWindow.patientManager.modifyPatient(PatientPrincipalWindow.patient);
         }
         return errorMac;

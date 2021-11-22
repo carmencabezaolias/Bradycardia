@@ -131,9 +131,9 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
             }
         });
 
-        ErrorEmail.setText("Right a correct email");
+        ErrorEmail.setText("Write a correct email");
 
-        ErrorPhone.setText("Right a correct phone number");
+        ErrorPhone.setText("Write a correct phone number");
 
         ErrorName.setText("Enter a name without numbers");
 

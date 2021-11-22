@@ -50,9 +50,17 @@ public class PatientLoginWindow extends javax.swing.JFrame {
 
         jLabel3.setText("Password: ");
 
+        inputUser.setText("Maria");
         inputUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputUserActionPerformed(evt);
+            }
+        });
+
+        inputPassword.setText("1");
+        inputPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputPasswordActionPerformed(evt);
             }
         });
 
@@ -127,8 +135,9 @@ public class PatientLoginWindow extends javax.swing.JFrame {
     private void LoginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButActionPerformed
         //comprobar el username y el pass
         //PatientPrincipalWindow.patient igualarlo!
-        if (!FunctionsPatient.loginPatient(this.inputUser.getText(), this.inputPassword.getPassword())) {
-            this.ErrorLogin.setForeground(Color.red);
+        //if (!FunctionsPatient.loginPatient(this.inputUser.getText(), this.inputPassword.getPassword())) {
+        if (!FunctionsPatient.loginPatient(this.inputUser.getText(), ",".toCharArray())) {
+              this.ErrorLogin.setForeground(Color.red);
             this.ErrorLogin.setVisible(true);
         } else {
             this.ErrorLogin.setVisible(false);
@@ -147,6 +156,10 @@ public class PatientLoginWindow extends javax.swing.JFrame {
     private void inputUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputUserActionPerformed
+
+    private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputPasswordActionPerformed
 
     /**
      * @param args the command line arguments

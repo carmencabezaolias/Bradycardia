@@ -124,6 +124,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitButActionPerformed
 
     private void OtherBitalinoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherBitalinoButActionPerformed
+        System.out.println("El id " + PatientPrincipalWindow.patient.getDocId());
         PatientBitalinoWindow rd = new PatientBitalinoWindow();
         this.setVisible(false);
         rd.setVisible(true);     // TODO add your handling code here:
@@ -160,6 +161,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+               
                 new PatientInsideWindow().setVisible(true);
             }
         });

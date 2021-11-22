@@ -47,6 +47,7 @@ public class SQLManager implements DBManager {
 	{
         try{
            Class.forName("com.mysql.jdbc.Driver");
+           
            this.c = DriverManager.getConnection("jdbc:mysql://localhost/dbbradycardia?user=root&password=Cris.2102");
            patient = new SQLPatientManager(c);
            doctor = new SQLDoctorManager(c);

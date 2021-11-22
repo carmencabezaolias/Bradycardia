@@ -55,6 +55,8 @@ public class FunctionsPatient {
 
     public static boolean loginPatient(String username, char[] password) {
         Patient patient = PatientPrincipalWindow.patientManager.getPatientByUsername(username);
+        System.out.println("name en funct:"+patient.getFullName());
+        System.out.println(patient.getUsername());
         boolean gotPatient = false;
         //comprobar lo de la password
         if (patient == null) {
@@ -62,6 +64,8 @@ public class FunctionsPatient {
             System.out.println("no se ha encontrado el patient");
         } else {
             gotPatient = true;
+            patient.setDocId(1);
+            System.out.println(patient.getFullName());
             PatientPrincipalWindow.patient = patient;
         }
         return gotPatient;

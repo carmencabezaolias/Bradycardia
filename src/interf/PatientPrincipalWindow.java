@@ -16,7 +16,7 @@ import db.sql.SQLManager;
  */
 public class PatientPrincipalWindow extends javax.swing.JFrame {
 
-    public static Patient patient = new Patient();
+    public static Patient patient;
     public static DBManager dbManager;
     public static PatientManager patientManager;
 
@@ -133,6 +133,8 @@ public class PatientPrincipalWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                patient = new Patient();
+                
                 System.out.println("entra");
                 dbManager = new SQLManager();
                 System.out.println("error 1");
@@ -140,6 +142,7 @@ public class PatientPrincipalWindow extends javax.swing.JFrame {
                 System.out.println("error 2");
                 patientManager = dbManager.getPatientManager();
                 System.out.println("err3");
+                
                 new PatientPrincipalWindow().setVisible(true);
                 System.out.println("er4");
             }
