@@ -134,17 +134,11 @@ public class PatientPrincipalWindow extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 patient = new Patient();
-                
-                System.out.println("entra");
                 dbManager = new SQLManager();
-                System.out.println("error 1");
                 dbManager.connect();
-                System.out.println("error 2");
                 patientManager = dbManager.getPatientManager();
-                System.out.println("err3");
-                
+
                 new PatientPrincipalWindow().setVisible(true);
-                System.out.println("er4");
             }
         });
     }
