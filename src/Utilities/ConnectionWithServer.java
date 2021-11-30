@@ -5,11 +5,12 @@
  */
 package Utilities;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -17,20 +18,79 @@ import java.util.logging.Logger;
  */
 public class ConnectionWithServer {
 
+    public static String[] getDataFromFile() throws IOException {
+        File file2 = new File(".");
+        String path = file2.getAbsolutePath();
+        String goodpath = file2.getAbsolutePath().substring(0, path.length() - 2).concat("/files/DataConnection.txt");
+        FileReader br = null;
+        String[] datos = {"a", "a", "a", "a"};
+        try {
+            br = new FileReader(goodpath);
+
+            int caract;
+            int i = 0;
+            char a;
+            String dt = "";
+            while ((caract = br.read()) != -1) {
+                a = (char) caract;
+                if (a != '#') {
+                    dt = dt + a;
+                } else {
+                    datos[i] = dt;
+                    i++;
+                    dt = "";
+                    while (a != ';' || caract == -1) {
+                        caract = br.read();
+                        a = (char) caract;
+                    }
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            throw new IOException("File not found");
+        } catch (IOException e) {
+            throw new IOException("Error");
+        }
+        //datos[0] ---> IP SERVER SOCKET
+        //datos[1] ---> ServerSocket
+        //datos[2] ---> IP DB SERVER
+        //datos[3] ---> PORT DB SERVER
+        System.out.println(datos[1]);
+        System.out.println(Utilities.Exceptions.checkFloat(datos[1]));
+        return datos;
+    }
+
     public static boolean connectToServer() {
         boolean error = false;
         Socket socket;
-        // try{
         try {
-            socket = new Socket("localhost", 9000);
+            String[] datos = getDataFromFile();
+            int ip = Utilities.Exceptions.convertInt(datos[1]);
+            socket = new Socket(datos[0], ip);
         } catch (IOException ex) {
             error = true;
-            Logger.getLogger(ConnectionWithServer.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //}catch (ConnectException e){ //no se porque pone que no lo lanza si me sale
-
-        // }
         return error;
+    }
+
+    public static void sendPatient(String username, String password) {
+        boolean error = false;
+        try {
+            String[] datos = getDataFromFile();
+            int ip = Utilities.Exceptions.convertInt(datos[1]);
+            Socket socket = new Socket(datos[0], ip);
+            OutputStream outputStream = socket.getOutputStream();
+            String send = "p;" + username + ";" + password;
+            int i = 0;
+            while (i != send.length()) {
+                char character = send.charAt(i);
+                i++;
+                System.out.println(character);
+                outputStream.write(character);
+                outputStream.flush();
+            }
+        } catch (IOException ex) {
+            error = true;
+        }
     }
 
     public static boolean sendDataToServer(Socket socket, String data) {

@@ -41,6 +41,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
         LoginBut = new javax.swing.JButton();
         BackBut = new javax.swing.JButton();
         ErrorLogin = new javax.swing.JLabel();
+        inputP = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,6 +81,12 @@ public class PatientLoginWindow extends javax.swing.JFrame {
 
         ErrorLogin.setText("This patient couldn't be found");
 
+        inputP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputPActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,6 +113,10 @@ public class PatientLoginWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LoginBut)))
                 .addGap(75, 75, 75))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(inputP, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,25 +130,28 @@ public class PatientLoginWindow extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(ErrorLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LoginBut)
                     .addComponent(BackBut))
-                .addGap(43, 43, 43))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButActionPerformed
-        //comprobar el username y el pass
+        Utilities.ConnectionWithServer.sendPatient(this.inputUser.getText(), this.inputP.getText());
+//comprobar el username y el pass
         //PatientPrincipalWindow.patient igualarlo!
         //if (!FunctionsPatient.loginPatient(this.inputUser.getText(), this.inputPassword.getPassword())) {
         if (!FunctionsPatient.loginPatient(this.inputUser.getText(), ",".toCharArray())) {
-              this.ErrorLogin.setForeground(Color.red);
+            this.ErrorLogin.setForeground(Color.red);
             this.ErrorLogin.setVisible(true);
         } else {
             this.ErrorLogin.setVisible(false);
@@ -160,6 +174,10 @@ public class PatientLoginWindow extends javax.swing.JFrame {
     private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPasswordActionPerformed
+
+    private void inputPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,6 +221,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
     private javax.swing.JButton BackBut;
     private javax.swing.JLabel ErrorLogin;
     private javax.swing.JButton LoginBut;
+    private javax.swing.JTextField inputP;
     private javax.swing.JPasswordField inputPassword;
     private javax.swing.JTextField inputUser;
     private javax.swing.JLabel jLabel1;
