@@ -6,7 +6,14 @@
 package Utilities;
 
 import Pojos.Patient;
+import static Utilities.ConnectionWithServer.getDataFromFile;
 import interf.PatientPrincipalWindow;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 /**
  *
@@ -54,9 +61,49 @@ public class FunctionsPatient {
     }
 
     public static boolean loginPatient(String username, char[] password) {
-        Patient patient = PatientPrincipalWindow.patientManager.getPatientByUsername(username);
-        System.out.println("name en funct:"+patient.getFullName());
-        System.out.println(patient.getUsername());
+        boolean error = false;
+        InputStream inputStream = null;
+        ObjectInputStream objectInputStream = null;
+        ServerSocket serverSocket = null;
+        Socket socket = null;
+        try {
+            String[] datos = getDataFromFile();
+            int ip = Utilities.Exceptions.convertInt(datos[1]);
+            socket = new Socket(datos[0], ip);
+            inputStream = socket.getInputStream();
+            objectInputStream = new ObjectInputStream(inputStream);
+            Object tmp;
+            try {
+                while ((tmp = objectInputStream.readObject()) != null) {
+                    PatientPrincipalWindow.patient = (Patient) tmp;
+                }
+
+            } catch (EOFException ex) {
+                error = true;
+                System.out.println("All data have been correctly read.");
+
+            } catch (IOException ex) {
+                error = true;
+                System.out.println("It was not possible to start the server. Fatal error.");
+
+            }
+        } catch (IOException | ClassNotFoundException ex) {
+            error = true;
+            System.out.println("Unable to read from the client.");
+
+        }
+        return error;
+    }
+
+    // Patient patient = PatientPrincipalWindow.patientManager.getPatientByUsername(username);
+    //System.out.println("name en funct:"+patient.getFullName());
+    // System.out.println(patient.getUsername());
+    /*  objectInputStream = new ObjectInputStream(inputStream);
+            Object tmp;
+            while ((tmp = objectInputStream.readObject()) != null) {
+                Client persona = (Client) tmp;
+                System.out.println(persona.toString());
+            }
         boolean gotPatient = false;
         //comprobar lo de la password
         if (patient == null) {
@@ -68,6 +115,5 @@ public class FunctionsPatient {
             System.out.println(patient.getFullName());
             PatientPrincipalWindow.patient = patient;
         }
-        return gotPatient;
-    }
+        return gotPatient;*/
 }

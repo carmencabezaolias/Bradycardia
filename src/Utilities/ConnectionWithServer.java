@@ -79,7 +79,7 @@ public class ConnectionWithServer {
             int ip = Utilities.Exceptions.convertInt(datos[1]);
             Socket socket = new Socket(datos[0], ip);
             OutputStream outputStream = socket.getOutputStream();
-            String send = "p;" + username + ";" + password;
+            String send = "Patient;+" + username + ";" + password;
             int i = 0;
             while (i != send.length()) {
                 char character = send.charAt(i);
