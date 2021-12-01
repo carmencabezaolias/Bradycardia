@@ -76,10 +76,10 @@ public class ConnectionWithServer {
         boolean error = false;
         try {
             String[] datos = getDataFromFile();
-            int ip = Utilities.Exceptions.convertInt(datos[1]);
-            Socket socket = new Socket(datos[0], ip);
+            int port = Utilities.Exceptions.convertInt(datos[1]);
+            Socket socket = new Socket(datos[0], port);
             OutputStream outputStream = socket.getOutputStream();
-            String send = "Patient;+" + username + ";" + password;
+            String send = "Patient;" + username + ";" + password;
             int i = 0;
             while (i != send.length()) {
                 char character = send.charAt(i);
