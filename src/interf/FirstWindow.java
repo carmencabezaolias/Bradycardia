@@ -6,12 +6,15 @@
 package interf;
 
 import java.awt.Color;
+import java.net.Socket;
 
 /**
  *
  * @author carmen
  */
 public class FirstWindow extends javax.swing.JFrame {
+
+    public static Socket socket;
 
     /**
      * Creates new form FirstWindow
@@ -102,7 +105,7 @@ public class FirstWindow extends javax.swing.JFrame {
         /*this.t1.setVisible(true);
         this.t1.setVisible(true);
         this.t3.setVisible(true);*/
-        boolean error = Utilities.ConnectionWithServer.connectToServer();
+        boolean error = Utilities.ConnectionWithServer.connectToServer(socket);
         if (error) {
             // this.t1.setVisible(false);
             // this.t3.setVisible(false);

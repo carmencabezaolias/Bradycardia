@@ -146,7 +146,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButActionPerformed
-        Utilities.ConnectionWithServer.sendPatient(this.inputUser.getText(), this.inputP.getText());
+        Utilities.ConnectionWithServer.sendPatient(FirstWindow.socket, this.inputUser.getText(), this.inputP.getText());
 //comprobar el username y el pass
         //PatientPrincipalWindow.patient igualarlo!
         //if (!FunctionsPatient.loginPatient(this.inputUser.getText(), this.inputPassword.getPassword())) {

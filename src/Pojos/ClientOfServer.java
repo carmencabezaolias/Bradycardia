@@ -16,13 +16,8 @@ import java.net.Socket;
 public class ClientOfServer implements Runnable {
 
     int byteRead;
-    public static Socket socket;
+    Socket socket;
     boolean[] error;
-
-    public void ClienOfServer() {
-        this.byteRead = 0;
-        this.socket = new Socket();
-    }
 
     public ClientOfServer(Socket socket) {
         this.socket = socket;
