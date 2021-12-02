@@ -147,4 +147,9 @@ public class Patient {
         this.bitalino = new BITalino();
     }
 
+    @Override
+    public String toString() {
+        return "p#" + ID + ";" + fullName + ";" + username + ";" + address + ";" + phonenumber + ";" + email + ";" + diagnosis + ";" + docId + ";" + password + ";" + macBitalino + ";" + bitalino + ";#";
+    }
+
 }
