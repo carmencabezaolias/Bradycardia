@@ -6,6 +6,7 @@
 package interf;
 
 import Utilities.ConnectionWithServer;
+import java.awt.Color;
 
 /**
  *
@@ -18,6 +19,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
      */
     public PatientLoginWindow() {
         initComponents();
+        this.jLabel1.setText(PatientPrincipalWindow.patient.getFullName());
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.ErrorLogin.setVisible(false);
@@ -145,12 +147,15 @@ public class PatientLoginWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButActionPerformed
-        Utilities.ConnectionWithServer.sendPatient(FirstWindow.socket, FirstWindow.printWriter, this.inputUser.getText(), this.inputP.getText());
+        // Utilities.ConnectionWithServer.sendPatient(FirstWindow.socket, FirstWindow.printWriter, this.inputUser.getText(), this.inputP.getText());
 //comprobar el username y el pass
         //PatientPrincipalWindow.patient igualarlo!
         //if (!FunctionsPatient.loginPatient(this.inputUser.getText(), this.inputPassword.getPassword())) {
+        this.LoginBut.setVisible(false);
         ConnectionWithServer.sendPatient(FirstWindow.socket, FirstWindow.printWriter, this.inputUser.getText(), "1");
-        /*if (!FunctionsPatient.loginPatient(FirstWindow.socket, this.inputUser.getText(), ",".toCharArray())) {
+        ConnectionWithServer.receiveData(FirstWindow.socket, FirstWindow.bufferedReader);
+        this.jLabel1.setText("ay esta todo pasamos");
+        if (PatientPrincipalWindow.patient == null) {
             this.ErrorLogin.setForeground(Color.red);
             this.ErrorLogin.setVisible(true);
         } else {
@@ -158,7 +163,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
             PatientInsideWindow rd = new PatientInsideWindow();
             this.setVisible(false);
             rd.setVisible(true);
-        }*/
+        }
     }//GEN-LAST:event_LoginButActionPerformed
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed

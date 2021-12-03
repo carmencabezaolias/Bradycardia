@@ -50,7 +50,7 @@ public class Patient {
 
     public Patient() {
         super();
-        this.fullName = "";
+        this.fullName = "hey";
         this.username = "";
         this.macBitalino = null;
     }

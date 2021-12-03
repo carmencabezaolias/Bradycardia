@@ -6,7 +6,9 @@
 package interf;
 
 import java.awt.Color;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -20,6 +22,7 @@ public class FirstWindow extends javax.swing.JFrame {
 
     public static Socket socket;
     public static PrintWriter printWriter;
+    public static BufferedReader bufferedReader;
 
     /**
      * Creates new form FirstWindow
@@ -114,6 +117,8 @@ public class FirstWindow extends javax.swing.JFrame {
         try {
             printWriter = new PrintWriter(socket.getOutputStream(), true);
             printWriter.println("hola en firts window");
+            bufferedReader = bufferedReader = new BufferedReader(
+                    new InputStreamReader(socket.getInputStream()));;
         } catch (IOException ex) {
             Logger.getLogger(FirstWindow.class.getName()).log(Level.SEVERE, null, ex);
         }

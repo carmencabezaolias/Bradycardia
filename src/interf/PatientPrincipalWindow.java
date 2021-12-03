@@ -22,6 +22,10 @@ public class PatientPrincipalWindow extends javax.swing.JFrame {
 
     public PatientPrincipalWindow() {
         initComponents();
+        patient = new Patient();
+        dbManager = new SQLManager();
+        dbManager.connect();
+        patientManager = dbManager.getPatientManager();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
 
@@ -133,11 +137,11 @@ public class PatientPrincipalWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                patient = new Patient();
+                /* patient = new Patient();
                 dbManager = new SQLManager();
                 dbManager.connect();
                 patientManager = dbManager.getPatientManager();
-
+                 */
                 new PatientPrincipalWindow().setVisible(true);
             }
         });

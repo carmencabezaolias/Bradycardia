@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -82,32 +81,49 @@ public class ConnectionWithServer {
     }
 //public static PrintWi
 
-    public static void receiveData(Socket socket) {
-        BufferedReader bufferedReader;
+    public static void receiveData(Socket socket, BufferedReader bufferedReader) {
+
         try {
-            bufferedReader = new BufferedReader(
-                    new InputStreamReader(socket.getInputStream()));
+            // bufferedReader = new BufferedReader(
+            //  new InputStreamReader(socket.getInputStream()));
             String[] datos = new String[100];
             System.out.println("Text Received:\n");
             String line = bufferedReader.readLine();
-            System.out.println(line);
+            System.out.println("recivido:  " + line);
             int i = 0;
-            int j = 0;
+            int con = 0;
             String cap = "";
             switch (line.charAt(0)) {
                 case 'p':
                     while (line.charAt(i + 2) != '#') {
                         while (line.charAt(i + 2) != ';') {
-                            cap = cap + line.charAt(i + 2);
+                            cap = cap.concat(Character.toString(line.charAt(i + 2)));
+                            System.out.println("El contador de chars en con: " + i + " el string: " + cap);
                             i++;
                         }
-                        datos[j] = cap;
-                        j++;
+                        System.out.println("Con es:" + con);
+                        datos[con] = cap;
+                        i++;
+                        con++;
                         cap = "";
                     }
+                    System.out.println("ya todo leido");
+                    System.out.println("1: " + datos[0]);
+                    System.out.println("2: " + datos[1]);
+                    System.out.println("3: " + datos[2]);
+                    System.out.println("4: " + datos[3]);
+                    System.out.println("5: " + datos[4]);
+                    System.out.println("6: " + datos[5]);
+                    System.out.println("7: " + datos[7]);
+                    System.out.println("Error despues de esto");
                     // return "p#" + ID + ";" + fullName + ";" + username + ";" + address + ";" + phonenumber + ";" +
                     //email + ";" + diagnosis + ";" + docId + ";" + password + ";" + macBitalino + ";" + bitalino + ";#";
-                    PatientPrincipalWindow.patient.setID(Exceptions.convertInt(datos[0]));
+                    if (Exceptions.checkInt(datos[0])) {
+                        PatientPrincipalWindow.patient.setID(Exceptions.convertInt(datos[0]));
+                    } else {
+                        System.out.println("no se puede pasar");
+                        PatientPrincipalWindow.patient.setID(30);
+                    }
                     PatientPrincipalWindow.patient.setFullName(datos[1]);
                     PatientPrincipalWindow.patient.setUsername(datos[2]);
                     PatientPrincipalWindow.patient.setAddress(datos[3]);
@@ -118,6 +134,7 @@ public class ConnectionWithServer {
                     //PatientPrincipalWindow.patient.setPassword(password);
                     PatientPrincipalWindow.patient.setMacBitalino(datos[9]);
                     PatientPrincipalWindow.patient.setNewBitalino();
+                    System.out.println("Se ha acabado la tragedia");
                     break;
 
             }
