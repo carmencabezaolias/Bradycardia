@@ -8,7 +8,6 @@ package interf;
 import Pojos.Patient;
 import db.interfaces.DBManager;
 import db.interfaces.PatientManager;
-import db.sql.SQLManager;
 
 /**
  *
@@ -23,9 +22,9 @@ public class PatientPrincipalWindow extends javax.swing.JFrame {
     public PatientPrincipalWindow() {
         initComponents();
         patient = new Patient();
-        dbManager = new SQLManager();
-        dbManager.connect();
-        patientManager = dbManager.getPatientManager();
+        // dbManager = new SQLManager();
+        //  dbManager.connect();
+        //   patientManager = dbManager.getPatientManager();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
 
