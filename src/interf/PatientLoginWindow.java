@@ -5,8 +5,7 @@
  */
 package interf;
 
-import Utilities.FunctionsPatient;
-import java.awt.Color;
+import Utilities.ConnectionWithServer;
 
 /**
  *
@@ -146,11 +145,12 @@ public class PatientLoginWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButActionPerformed
-        Utilities.ConnectionWithServer.sendPatient(FirstWindow.socket, this.inputUser.getText(), this.inputP.getText());
+        Utilities.ConnectionWithServer.sendPatient(FirstWindow.socket, FirstWindow.printWriter, this.inputUser.getText(), this.inputP.getText());
 //comprobar el username y el pass
         //PatientPrincipalWindow.patient igualarlo!
         //if (!FunctionsPatient.loginPatient(this.inputUser.getText(), this.inputPassword.getPassword())) {
-        if (!FunctionsPatient.loginPatient(this.inputUser.getText(), ",".toCharArray())) {
+        ConnectionWithServer.sendPatient(FirstWindow.socket, FirstWindow.printWriter, this.inputUser.getText(), "1");
+        /*if (!FunctionsPatient.loginPatient(FirstWindow.socket, this.inputUser.getText(), ",".toCharArray())) {
             this.ErrorLogin.setForeground(Color.red);
             this.ErrorLogin.setVisible(true);
         } else {
@@ -158,7 +158,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
             PatientInsideWindow rd = new PatientInsideWindow();
             this.setVisible(false);
             rd.setVisible(true);
-        }
+        }*/
     }//GEN-LAST:event_LoginButActionPerformed
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed

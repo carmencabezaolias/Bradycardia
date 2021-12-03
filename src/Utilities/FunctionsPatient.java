@@ -5,15 +5,7 @@
  */
 package Utilities;
 
-import Pojos.Patient;
-import static Utilities.ConnectionWithServer.getDataFromFile;
 import interf.PatientPrincipalWindow;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
 
 /**
  *
@@ -60,16 +52,16 @@ public class FunctionsPatient {
         //lo del hash con las pass
     }
 
-    public static boolean loginPatient(String username, char[] password) {
+    /*
+    public static boolean loginPatient(Socket socket, String username, char[] password) {
         boolean error = false;
         InputStream inputStream = null;
         ObjectInputStream objectInputStream = null;
-        ServerSocket serverSocket = null;
-        Socket socket = null;
+        // ServerSocket serverSocket = null;
+        //Socket socket = null;
         try {
             String[] datos = getDataFromFile();
             int ip = Utilities.Exceptions.convertInt(datos[1]);
-            socket = new Socket(datos[0], ip);
             inputStream = socket.getInputStream();
             objectInputStream = new ObjectInputStream(inputStream);
             Object tmp;

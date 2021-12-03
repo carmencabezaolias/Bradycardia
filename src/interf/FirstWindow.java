@@ -6,7 +6,11 @@
 package interf;
 
 import java.awt.Color;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,6 +19,7 @@ import java.net.Socket;
 public class FirstWindow extends javax.swing.JFrame {
 
     public static Socket socket;
+    public static PrintWriter printWriter;
 
     /**
      * Creates new form FirstWindow
@@ -105,8 +110,15 @@ public class FirstWindow extends javax.swing.JFrame {
         /*this.t1.setVisible(true);
         this.t1.setVisible(true);
         this.t3.setVisible(true);*/
-        boolean error = Utilities.ConnectionWithServer.connectToServer(socket);
-        if (error) {
+        socket = Utilities.ConnectionWithServer.connectToServer();
+        try {
+            printWriter = new PrintWriter(socket.getOutputStream(), true);
+            printWriter.println("hola en firts window");
+        } catch (IOException ex) {
+            Logger.getLogger(FirstWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        // printWriter = Utilities.ConnectionWithServer.initWriter();
+        if (socket.getLocalPort() == -1) {
             // this.t1.setVisible(false);
             // this.t3.setVisible(false);
             this.t2.setVisible(true);

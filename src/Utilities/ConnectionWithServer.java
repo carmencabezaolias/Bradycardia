@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +29,7 @@ public class ConnectionWithServer {
         String path = file2.getAbsolutePath();
         String goodpath = file2.getAbsolutePath().substring(0, path.length() - 2).concat("/files/DataConnection.txt");
         FileReader br = null;
-        String[] datos = {"a", "a", "a", "a"};
+        String[] datos = new String[5];
         try {
             br = new FileReader(goodpath);
 
@@ -64,17 +65,22 @@ public class ConnectionWithServer {
         return datos;
     }
 
-    public static boolean connectToServer(Socket socket) {
+    public static Socket connectToServer() {
         boolean error = false;
+        Socket socket1 = new Socket();
         try {
             String[] datos = getDataFromFile();
             int ip = Utilities.Exceptions.convertInt(datos[1]);
-            socket = new Socket(datos[0], ip);
+            socket1 = new Socket(datos[0], ip);
+
+            System.out.println("socket info1: " + socket1.getLocalPort());
+            //printWriter.println("hi");
         } catch (IOException ex) {
             error = true;
         }
-        return error;
+        return socket1;
     }
+//public static PrintWi
 
     public static void receiveData(Socket socket) {
         BufferedReader bufferedReader;
@@ -121,22 +127,30 @@ public class ConnectionWithServer {
         }
     }
 
-    public static void sendPatient(Socket socket, String username, String password) {
+    public static void sendPatient(Socket socket, PrintWriter printWriter, String username, String password) {
         boolean error = false;
-        try {
-            OutputStream outputStream = socket.getOutputStream();
-            String send = "Patient;" + username + ";" + password;
-            int i = 0;
-            while (i != send.length()) {
-                char character = send.charAt(i);
-                i++;
-                System.out.println(character);
-                outputStream.write(character);
-                outputStream.flush();
-            }
-        } catch (IOException ex) {
+        //try {
+        //OutputStream outputStream = new OutputStream();
+        //outputStream = socket.getOutputStream();+
+        System.out.println("aque en printwriter");
+        System.out.println("socket info: " + socket.getLocalPort());
+        //printWriter.println("se va a mandar patient");
+        // aqui dices que va a escribir cualquier cosa que este en el printwritter
+        String send = "p#" + username + ";" + password;
+        //System.out.println("s: " + send);
+        printWriter.println(send);
+        int i = 0;
+        /*while (i != send.length()) {
+            char character = send.charAt(i);
+            i++;
+            System.out.println(character);
+            printWriter.print(character);
+            //outputStream.write(character);
+            // outputStream.flush();
+        }*/
+ /*  } catch (IOException ex) {
             error = true;
-        }
+        }*/
     }
 
     public static boolean sendDataToServer(Socket socket, String data) {
