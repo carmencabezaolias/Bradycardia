@@ -130,11 +130,12 @@ public class SQLPatientManager implements PatientManager {
                 String phoneNumber = rs.getString("phoneNumber");
                 String email = rs.getString("email");
                 Integer docID = rs.getInt("idDoctor");
+                String password = rs.getString("pwd");
                 String diagnosis = rs.getString("diagnosis");
                 String macBitalino = rs.getString("macBitalino");
                 // meter contraseña
                 System.out.println("name: "+ name);
-                patient = new Patient(patID, name, username2, address, phoneNumber, email, diagnosis, docID, macBitalino);
+                patient = new Patient(patID, name, username2, address, phoneNumber, email, diagnosis, docID, password, macBitalino);
                 System.out.println(patient.getFullName());
             }
 
