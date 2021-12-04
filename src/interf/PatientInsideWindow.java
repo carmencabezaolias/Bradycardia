@@ -5,6 +5,7 @@
  */
 package interf;
 
+import Utilities.ConnectionWithServer;
 import java.awt.Color;
 
 /**
@@ -18,7 +19,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
      */
     public PatientInsideWindow() {
         initComponents();
-        this.Name.setText(PatientPrincipalWindow.patient.getUsername());
+        this.name.setText(PatientPrincipalWindow.patient.getUsername());
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.ErrorBitText.setVisible(false);
@@ -34,11 +35,11 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         GetBut = new javax.swing.JButton();
-        SeeData = new javax.swing.JButton();
+        DataBut = new javax.swing.JButton();
         ExitBut = new javax.swing.JButton();
         OtherBitalinoBut = new javax.swing.JButton();
         ErrorBitText = new javax.swing.JLabel();
-        Name = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,7 +50,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
             }
         });
 
-        SeeData.setText("SEE DATA");
+        DataBut.setText("SEE DATA");
 
         ExitBut.setText("Exit");
         ExitBut.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +68,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
 
         ErrorBitText.setText("You have not register a BITalino yet");
 
-        Name.setText("jLabel1");
+        name.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,7 +83,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(GetBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SeeData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DataBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(OtherBitalinoBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(128, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -92,8 +93,8 @@ public class PatientInsideWindow extends javax.swing.JFrame {
                         .addComponent(ErrorBitText)
                         .addGap(28, 28, 28))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Name)
-                        .addGap(119, 119, 119))))
+                        .addComponent(name)
+                        .addGap(116, 116, 116))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,12 +104,12 @@ public class PatientInsideWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ErrorBitText)
                 .addGap(21, 21, 21)
-                .addComponent(SeeData)
+                .addComponent(DataBut)
                 .addGap(26, 26, 26)
                 .addComponent(OtherBitalinoBut)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(Name)
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(name)
+                .addGap(21, 21, 21)
                 .addComponent(ExitBut)
                 .addGap(18, 18, 18))
         );
@@ -134,7 +135,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
         rd.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_ExitButActionPerformed
 
-     private void SeeDataButActionPerformed(java.awt.event.ActionEvent evt) {                                        
+     private void DataButActionPerformed(java.awt.event.ActionEvent evt) {                                        
         PatientGetData rd = new PatientGetData();
         this.setVisible(false);
         rd.setVisible(true);         // TODO add your handling code here:
@@ -186,11 +187,11 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DataBut;
     private javax.swing.JLabel ErrorBitText;
     private javax.swing.JButton ExitBut;
     private javax.swing.JButton GetBut;
-    private javax.swing.JLabel Name;
     private javax.swing.JButton OtherBitalinoBut;
-    private javax.swing.JButton SeeData;
+    private javax.swing.JLabel name;
     // End of variables declaration//GEN-END:variables
 }

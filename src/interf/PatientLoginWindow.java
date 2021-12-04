@@ -82,6 +82,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
 
         ErrorLogin.setText("This patient couldn't be found");
 
+        inputP.setText("1");
         inputP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputPActionPerformed(evt);
