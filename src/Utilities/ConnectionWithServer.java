@@ -26,6 +26,7 @@ public class ConnectionWithServer {
     public static String[] getDataFromFile() throws IOException {
         File file2 = new File(".");
         String path = file2.getAbsolutePath();
+        //we want to extract the information of the file DattaConnection.txt
         String goodpath = file2.getAbsolutePath().substring(0, path.length() - 2).concat("/files/DataConnection.txt");
         FileReader br = null;
         String[] datos = new String[5];
@@ -56,7 +57,7 @@ public class ConnectionWithServer {
             throw new IOException("Error");
         }
         //datos[0] ---> IP SERVER SOCKET
-        //datos[1] ---> ServerSocket
+        //datos[1] ---> PORT SERVER SOCKET
         //datos[2] ---> IP DB SERVER
         //datos[3] ---> PORT DB SERVER
         System.out.println(datos[1]);
@@ -69,11 +70,10 @@ public class ConnectionWithServer {
         Socket socket1 = new Socket();
         try {
             String[] datos = getDataFromFile();
+            //in datos[1] we have the number of the port whereas in datos[0] the ip address
             int ip = Utilities.Exceptions.convertInt(datos[1]);
             socket1 = new Socket(datos[0], ip);
-
             System.out.println("socket info1: " + socket1.getLocalPort());
-            //printWriter.println("hi");
         } catch (IOException ex) {
             error = true;
         }
@@ -87,35 +87,33 @@ public class ConnectionWithServer {
             // bufferedReader = new BufferedReader(
             //  new InputStreamReader(socket.getInputStream()));
             String[] datos = new String[100];
-            System.out.println("Text Received:\n");
+            //vamos a leer toda la información que pasa el server del paciente
             String line = bufferedReader.readLine();
-            System.out.println("recivido:  " + line);
             int i = 0;
-            int con = 0;
-            String cap = "";
+            int contador = 0;
+            String data = "";
             switch (line.charAt(0)) {
                 case 'p':
                     while (line.charAt(i + 2) != '#') {
                         while (line.charAt(i + 2) != ';') {
-                            cap = cap.concat(Character.toString(line.charAt(i + 2)));
-                            System.out.println("El contador de chars en con: " + i + " el string: " + cap);
+                            data = data.concat(Character.toString(line.charAt(i + 2)));
+                            //System.out.println("El contador de chars en con: " + i + " el string: " + cap);
                             i++;
                         }
-                        System.out.println("Con es:" + con);
-                        datos[con] = cap;
+                        //System.out.println("Con es:" + con);
+                        datos[contador] = data;
                         i++;
-                        con++;
-                        cap = "";
+                        contador++;
+                        data = "";
                     }
-                    System.out.println("ya todo leido");
-                    System.out.println("1: " + datos[0]);
+                    /*System.out.println("1: " + datos[0]);
                     System.out.println("2: " + datos[1]);
                     System.out.println("3: " + datos[2]);
                     System.out.println("4: " + datos[3]);
                     System.out.println("5: " + datos[4]);
                     System.out.println("6: " + datos[5]);
                     System.out.println("7: " + datos[7]);
-                    System.out.println("Error despues de esto");
+                    System.out.println("Error despues de esto");*/
                     // return "p#" + ID + ";" + fullName + ";" + username + ";" + address + ";" + phonenumber + ";" +
                     //email + ";" + diagnosis + ";" + docId + ";" + password + ";" + macBitalino + ";" + bitalino + ";#";
                     if (Exceptions.checkInt(datos[0])) {
@@ -134,11 +132,8 @@ public class ConnectionWithServer {
                     //PatientPrincipalWindow.patient.setPassword(password);
                     PatientPrincipalWindow.patient.setMacBitalino(datos[9]);
                     PatientPrincipalWindow.patient.setNewBitalino();
-                    System.out.println("Se ha acabado la tragedia");
                     break;
-
             }
-
         } catch (IOException ex) {
             Logger.getLogger(ConnectionWithServer.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -149,25 +144,11 @@ public class ConnectionWithServer {
         //try {
         //OutputStream outputStream = new OutputStream();
         //outputStream = socket.getOutputStream();+
-        System.out.println("aque en printwriter");
         System.out.println("socket info: " + socket.getLocalPort());
-        //printWriter.println("se va a mandar patient");
-        // aqui dices que va a escribir cualquier cosa que este en el printwritter
         String send = "p#" + username + ";" + password;
-        //System.out.println("s: " + send);
+        //se manda al server un String que contiene el usuario y el password
         printWriter.println(send);
         int i = 0;
-        /*while (i != send.length()) {
-            char character = send.charAt(i);
-            i++;
-            System.out.println(character);
-            printWriter.print(character);
-            //outputStream.write(character);
-            // outputStream.flush();
-        }*/
- /*  } catch (IOException ex) {
-            error = true;
-        }*/
     }
 
     public static boolean sendDataToServer(Socket socket, String data) {

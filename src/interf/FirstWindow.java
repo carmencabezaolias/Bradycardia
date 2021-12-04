@@ -117,8 +117,7 @@ public class FirstWindow extends javax.swing.JFrame {
         try {
             printWriter = new PrintWriter(socket.getOutputStream(), true);
             printWriter.println("hola en firts window");
-            bufferedReader = bufferedReader = new BufferedReader(
-                    new InputStreamReader(socket.getInputStream()));;
+            bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));;
         } catch (IOException ex) {
             Logger.getLogger(FirstWindow.class.getName()).log(Level.SEVERE, null, ex);
         }

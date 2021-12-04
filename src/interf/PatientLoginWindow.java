@@ -152,9 +152,10 @@ public class PatientLoginWindow extends javax.swing.JFrame {
         //PatientPrincipalWindow.patient igualarlo!
         //if (!FunctionsPatient.loginPatient(this.inputUser.getText(), this.inputPassword.getPassword())) {
         this.LoginBut.setVisible(false);
+        //mandamos la información con el nombre y la contraseña del paciente que esta accediendo
         ConnectionWithServer.sendPatient(FirstWindow.socket, FirstWindow.printWriter, this.inputUser.getText(), "1");
+        //esperamos a la que el server nos mande toda la información que está guardada de él
         ConnectionWithServer.receiveData(FirstWindow.socket, FirstWindow.bufferedReader);
-        this.jLabel1.setText("ay esta todo pasamos");
         if (PatientPrincipalWindow.patient == null) {
             this.ErrorLogin.setForeground(Color.red);
             this.ErrorLogin.setVisible(true);
