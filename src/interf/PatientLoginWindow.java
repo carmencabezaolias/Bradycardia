@@ -156,8 +156,8 @@ public class PatientLoginWindow extends javax.swing.JFrame {
         //mandamos la información con el nombre y la contraseña del paciente que esta accediendo
         ConnectionWithServer.sendPatient(FirstWindow.socket, FirstWindow.printWriter, this.inputUser.getText(), "1");
         //esperamos a la que el server nos mande toda la información que está guardada de él
-        ConnectionWithServer.receiveData(FirstWindow.socket, FirstWindow.bufferedReader);
-        if (PatientPrincipalWindow.patient == null) {
+        boolean correct = ConnectionWithServer.receiveData(FirstWindow.socket, FirstWindow.bufferedReader);
+        if (!correct) {
             this.ErrorLogin.setForeground(Color.red);
             this.ErrorLogin.setVisible(true);
         } else {
