@@ -160,7 +160,6 @@ public class ConnectionWithServer {
     public static void sendNewPatient(Socket socket, PrintWriter printWriter, Patient patient) {
         boolean error = false;
         printWriter.println(patient.toString());
-        int i = 0;
     }
 
     public static void sendSomething(Socket socket, PrintWriter printWriter, String mes) {

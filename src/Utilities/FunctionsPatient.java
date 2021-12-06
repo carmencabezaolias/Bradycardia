@@ -45,7 +45,7 @@ public class FunctionsPatient {
             PatientPrincipalWindow.patient.setEmail(email);
             PatientPrincipalWindow.patient.setPhonenumber(phone);
             //PatientPrincipalWindow.patient.setPassword(password);
-            PatientPrincipalWindow.patientManager.createPatient(PatientPrincipalWindow.patient);
+            // PatientPrincipalWindow.patientManager.createPatient(PatientPrincipalWindow.patient);
 
         }
         return error;
