@@ -5,6 +5,7 @@
  */
 package Utilities;
 
+import Pojos.Patient;
 import interf.PatientPrincipalWindow;
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,8 +15,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -82,7 +81,7 @@ public class ConnectionWithServer {
 //public static PrintWi
 
     public static boolean receiveData(Socket socket, BufferedReader bufferedReader) {
-        boolean correct=false;
+        boolean correct = false;
         try {
             // bufferedReader = new BufferedReader(
             //  new InputStreamReader(socket.getInputStream()));
@@ -116,9 +115,9 @@ public class ConnectionWithServer {
                     System.out.println("Error despues de esto");*/
                     // return "p#" + ID + ";" + fullName + ";" + username + ";" + address + ";" + phonenumber + ";" +
                     //email + ";" + diagnosis + ";" + docId + ";" + password + ";" + macBitalino + ";" + bitalino + ";#";
-                    if(datos[5].equals("null")){
-                        correct=false;
-                    }else{
+                    if (datos[5].equals("null")) {
+                        correct = false;
+                    } else {
                         if (Exceptions.checkInt(datos[0])) {
                             PatientPrincipalWindow.patient.setID(Exceptions.convertInt(datos[0]));
                         } else {
@@ -135,12 +134,12 @@ public class ConnectionWithServer {
                         //PatientPrincipalWindow.patient.setPassword(password);
                         PatientPrincipalWindow.patient.setMacBitalino(datos[9]);
                         PatientPrincipalWindow.patient.setNewBitalino();
-                        correct=true;
+                        correct = true;
                     }
                     break;
             }
         } catch (IOException ex) {
-            correct=false;
+            correct = false;
         }
         return correct;
     }
@@ -153,11 +152,22 @@ public class ConnectionWithServer {
         System.out.println("socket info: " + socket.getLocalPort());
         String send = "p#" + username + ";" + password;
         //se manda al server un String que contiene el usuario y el password
+        System.out.println("Se vuelve a enviar datos");
         printWriter.println(send);
         int i = 0;
     }
 
-    public static boolean sendDataToServer(Socket socket, String data) {
+    public static void sendNewPatient(Socket socket, PrintWriter printWriter, Patient patient) {
+        boolean error = false;
+        printWriter.println(patient.toString());
+        int i = 0;
+    }
+
+    public static void sendSomething(Socket socket, PrintWriter printWriter, String mes) {
+        printWriter.println(mes);
+    }
+
+    /* public static boolean sendDataToServer(Socket socket, String data) {
         //File To Read
         int character;
         int i = 0;
@@ -180,8 +190,7 @@ public class ConnectionWithServer {
 
         }
         return error;
-    }
-
+    }*/
     public static boolean exitFromServer(OutputStream outputStream, Socket socket) {
         boolean error = false;
         try {

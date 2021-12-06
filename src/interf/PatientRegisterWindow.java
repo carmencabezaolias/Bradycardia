@@ -5,6 +5,7 @@
  */
 package interf;
 
+import Utilities.ConnectionWithServer;
 import Utilities.FunctionsPatient;
 import java.awt.Color;
 import java.util.Arrays;
@@ -302,6 +303,7 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
             this.PasswordError.setVisible(true);
         }
         if (next) {
+            ConnectionWithServer.sendNewPatient(FirstWindow.socket, FirstWindow.printWriter, PatientPrincipalWindow.patient);
             PatientBitalinoWindow rd = new PatientBitalinoWindow();
             this.setVisible(false);
             rd.setVisible(true);

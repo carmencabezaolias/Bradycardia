@@ -16,6 +16,8 @@ public class PatientInformationWindow extends javax.swing.JFrame {
      */
     public PatientInformationWindow() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         this.fullname.setText("Full Name: " + PatientPrincipalWindow.patient.getFullName());
         this.username.setText("Username: " + PatientPrincipalWindow.patient.getUsername());
         this.address.setText("Address: " + PatientPrincipalWindow.patient.getAddress());
@@ -56,6 +58,11 @@ public class PatientInformationWindow extends javax.swing.JFrame {
         phone.setText("Phone:");
 
         BackBut.setText("Back");
+        BackBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButActionPerformed(evt);
+            }
+        });
 
         fullname.setText("Full name:");
 
@@ -103,6 +110,15 @@ public class PatientInformationWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed
+
+        PatientInsideWindow rd = new PatientInsideWindow();
+        this.setVisible(false);
+        rd.setVisible(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BackButActionPerformed
 
     /**
      * @param args the command line arguments

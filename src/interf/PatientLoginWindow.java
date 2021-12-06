@@ -23,6 +23,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.ErrorLogin.setVisible(false);
+        this.TryBut.setVisible(false);
     }
 
     /**
@@ -43,6 +44,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
         BackBut = new javax.swing.JButton();
         ErrorLogin = new javax.swing.JLabel();
         inputP = new javax.swing.JTextField();
+        TryBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,12 +84,13 @@ public class PatientLoginWindow extends javax.swing.JFrame {
 
         ErrorLogin.setText("This patient couldn't be found");
 
-        inputP.setText("1");
         inputP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputPActionPerformed(evt);
             }
         });
+
+        TryBut.setText("Try Again");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,20 +108,21 @@ public class PatientLoginWindow extends javax.swing.JFrame {
                     .addComponent(inputPassword))
                 .addGap(46, 46, 46))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ErrorLogin))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(BackBut)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LoginBut)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ErrorLogin)
                 .addGap(75, 75, 75))
             .addGroup(layout.createSequentialGroup()
                 .addGap(135, 135, 135)
                 .addComponent(inputP, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(BackBut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TryBut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LoginBut)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +142,8 @@ public class PatientLoginWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LoginBut)
-                    .addComponent(BackBut))
+                    .addComponent(BackBut)
+                    .addComponent(TryBut))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11))
@@ -152,15 +157,18 @@ public class PatientLoginWindow extends javax.swing.JFrame {
 //comprobar el username y el pass
         //PatientPrincipalWindow.patient igualarlo!
         //if (!FunctionsPatient.loginPatient(this.inputUser.getText(), this.inputPassword.getPassword())) {
-        this.LoginBut.setVisible(false);
+        // this.LoginBut.setVisible(false);
         //mandamos la información con el nombre y la contraseña del paciente que esta accediendo
         ConnectionWithServer.sendPatient(FirstWindow.socket, FirstWindow.printWriter, this.inputUser.getText(), "1");
         //esperamos a la que el server nos mande toda la información que está guardada de él
         boolean correct = ConnectionWithServer.receiveData(FirstWindow.socket, FirstWindow.bufferedReader);
         if (!correct) {
+            ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "again");
             this.ErrorLogin.setForeground(Color.red);
             this.ErrorLogin.setVisible(true);
+            //this.TryBut.setVisible(true);
         } else {
+            ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "login");
             this.ErrorLogin.setVisible(false);
             PatientInsideWindow rd = new PatientInsideWindow();
             this.setVisible(false);
@@ -228,6 +236,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
     private javax.swing.JButton BackBut;
     private javax.swing.JLabel ErrorLogin;
     private javax.swing.JButton LoginBut;
+    private javax.swing.JButton TryBut;
     private javax.swing.JTextField inputP;
     private javax.swing.JPasswordField inputPassword;
     private javax.swing.JTextField inputUser;

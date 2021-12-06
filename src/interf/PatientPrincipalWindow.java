@@ -6,6 +6,7 @@
 package interf;
 
 import Pojos.Patient;
+import Utilities.ConnectionWithServer;
 import db.interfaces.DBManager;
 import db.interfaces.PatientManager;
 
@@ -93,6 +94,7 @@ public class PatientPrincipalWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButActionPerformed
+        ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "patient-login");
         PatientLoginWindow rd = new PatientLoginWindow();
         this.setVisible(false);
         rd.setVisible(true);
@@ -100,6 +102,7 @@ public class PatientPrincipalWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_LoginButActionPerformed
 
     private void RegisterButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButActionPerformed
+        ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "patient-register");
         PatientRegisterWindow rd = new PatientRegisterWindow();
         this.setVisible(false);
         rd.setVisible(true);        // TODO add your handling code here:
