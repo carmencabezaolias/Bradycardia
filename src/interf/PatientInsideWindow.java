@@ -5,6 +5,7 @@
  */
 package interf;
 
+import Utilities.ConnectionWithServer;
 import java.awt.Color;
 
 /**
@@ -112,6 +113,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
 
     private void GetButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GetButActionPerformed
         if (PatientPrincipalWindow.patient.getMacBitalino() != null) {
+            ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "GetData");
             PatientChooseSignal rd = new PatientChooseSignal();
             this.setVisible(false);
             rd.setVisible(true);
@@ -129,6 +131,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitButActionPerformed
 
     private void OtherBitalinoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherBitalinoButActionPerformed
+        ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "Introducebitalino");
         System.out.println("El id " + PatientPrincipalWindow.patient.getDocId());
         PatientBitalinoWindow rd = new PatientBitalinoWindow();
         this.setVisible(false);

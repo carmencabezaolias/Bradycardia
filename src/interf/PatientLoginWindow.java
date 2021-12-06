@@ -159,7 +159,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
         //if (!FunctionsPatient.loginPatient(this.inputUser.getText(), this.inputPassword.getPassword())) {
         // this.LoginBut.setVisible(false);
         //mandamos la información con el nombre y la contraseña del paciente que esta accediendo
-        ConnectionWithServer.sendPatient(FirstWindow.socket, FirstWindow.printWriter, this.inputUser.getText(), "1");
+        ConnectionWithServer.sendPatient(FirstWindow.socket, FirstWindow.printWriter, this.inputUser.getText(), this.inputP.getText());
         //esperamos a la que el server nos mande toda la información que está guardada de él
         boolean correct = ConnectionWithServer.receiveData(FirstWindow.socket, FirstWindow.bufferedReader);
         if (!correct) {
@@ -168,7 +168,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
             this.ErrorLogin.setVisible(true);
             //this.TryBut.setVisible(true);
         } else {
-            ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "login");
+            ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "done");
             this.ErrorLogin.setVisible(false);
             PatientInsideWindow rd = new PatientInsideWindow();
             this.setVisible(false);
@@ -177,6 +177,7 @@ public class PatientLoginWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_LoginButActionPerformed
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed
+        ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "back");
         PatientPrincipalWindow rd = new PatientPrincipalWindow();
         this.setVisible(false);
         rd.setVisible(true); // TODO add your handling code here:

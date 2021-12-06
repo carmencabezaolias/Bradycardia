@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -131,7 +133,7 @@ public class ConnectionWithServer {
                         PatientPrincipalWindow.patient.setEmail(datos[5]);
                         PatientPrincipalWindow.patient.setDiagnosis(datos[6]);
                         PatientPrincipalWindow.patient.setDocId(Exceptions.convertInt(datos[7]));
-                        //PatientPrincipalWindow.patient.setPassword(password);
+                        PatientPrincipalWindow.patient.setPassword(datos[8]);
                         PatientPrincipalWindow.patient.setMacBitalino(datos[9]);
                         PatientPrincipalWindow.patient.setNewBitalino();
                         correct = true;
@@ -166,7 +168,16 @@ public class ConnectionWithServer {
     public static void sendSomething(Socket socket, PrintWriter printWriter, String mes) {
         printWriter.println(mes);
     }
-
+ public static String receiveSomething(Socket socket, BufferedReader bf) {
+       String line = "";
+        try {
+            line = bf.readLine();
+        } catch (IOException ex) {
+            //Logger.getLogger(ConnectionWithServer.class.getName()).log(Level.SEVERE, null, ex);
+            line = "Error";
+        }
+       return line;            
+    }
     /* public static boolean sendDataToServer(Socket socket, String data) {
         //File To Read
         int character;

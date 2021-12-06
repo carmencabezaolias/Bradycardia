@@ -7,6 +7,7 @@ package Utilities;
 
 import BITalino.BITalinoException;
 import BITalino.Frame;
+import interf.FirstWindow;
 import interf.PatientGetData;
 import interf.PatientPrincipalWindow;
 import java.util.logging.Level;
@@ -49,7 +50,7 @@ public class FunctionsBitalino {
         boolean error = false;
         PatientPrincipalWindow.patient.setNewBitalino();
         try {
-            System.out.println("samping: " + sampling); //por si acaso
+            System.out.println("sampling: " + sampling); //por si acaso
             PatientPrincipalWindow.patient.getBitalino().open(macAddress, sampling);
             error = false;
         } catch (BITalinoException be) {
@@ -119,7 +120,7 @@ public class FunctionsBitalino {
                             + frame[i].analog[0] + " "
                             + frame[i].analog[1] + " ";
                     // se podria devolver este a para imprimirlo por pantalla.
-
+                    ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, a);
                 }
             }
             PatientPrincipalWindow.patient.getBitalino().stop(); // esto se quita cuando este la interfaz

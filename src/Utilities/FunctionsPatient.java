@@ -13,8 +13,8 @@ import interf.PatientPrincipalWindow;
  */
 public class FunctionsPatient {
 
-    public static boolean[] introducePatient(String name, String username, String email, String adress, String phone, char[] password) {
-        boolean[] error = null;
+    public static boolean[] introducePatient(String name, String username, String email, String adress, String phone, String password) {
+        boolean[] error = new boolean[5];
 
         if (!Exceptions.checkString(name)) {
             error[0] = true;
@@ -22,11 +22,11 @@ public class FunctionsPatient {
             error[0] = false;
         }
 
-        if (!Exceptions.checkUsername(true, username)) {
+       /* if (!Exceptions.checkUsername(true, username)) {
             error[1] = true;
         } else {
             error[1] = false;
-        }
+        }*/
 
         if (!Exceptions.checkEmail(email)) {
             error[2] = true;
@@ -44,8 +44,8 @@ public class FunctionsPatient {
             PatientPrincipalWindow.patient.setAddress(adress);
             PatientPrincipalWindow.patient.setEmail(email);
             PatientPrincipalWindow.patient.setPhonenumber(phone);
-            //PatientPrincipalWindow.patient.setPassword(password);
-            PatientPrincipalWindow.patientManager.createPatient(PatientPrincipalWindow.patient);
+            PatientPrincipalWindow.patient.setPassword(password);
+            //PatientPrincipalWindow.patientManager.createPatient(PatientPrincipalWindow.patient);
 
         }
         return error;

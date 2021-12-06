@@ -14,7 +14,7 @@ import interf.PatientPrincipalWindow;
  */
 public class Exceptions {
 
-    public static boolean checkUsername(boolean patient, String username) {
+   /*public static boolean checkUsername(boolean patient, String username) {
         boolean free = false;
         if (patient) {
             Patient a = PatientPrincipalWindow.patientManager.getPatientByUsername(username);
@@ -26,7 +26,7 @@ public class Exceptions {
         }
         return free;
     }
-
+*/
     public static boolean checkEmail(String email) {
         boolean isEmail = true;
         int index = email.indexOf("@");

@@ -5,6 +5,7 @@
  */
 package interf;
 
+import Utilities.ConnectionWithServer;
 import Utilities.FunctionsBitalino;
 import java.awt.Color;
 
@@ -261,9 +262,11 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
             
       //      System.out.println( PatientPrincipalWindow.patient.getMacBitalino().toString());
             PatientPrincipalWindow.patient.setMacBitalino(macAddress);
-            System.out.println( PatientPrincipalWindow.patient.getMacBitalino().toString());
+            System.out.println(PatientPrincipalWindow.patient.getMacBitalino().toString());
+            ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, macAddress);
             System.out.println(PatientPrincipalWindow.patient.getID());
-            PatientPrincipalWindow.patientManager.modifyPatient(PatientPrincipalWindow.patient);
+            ConnectionWithServer.receiveData(FirstWindow.socket, FirstWindow.bufferedReader);
+            //PatientPrincipalWindow.patientManager.modifyPatient(PatientPrincipalWindow.patient);
         }
         return errorMac;
     }
