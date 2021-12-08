@@ -34,7 +34,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         GetBut = new javax.swing.JButton();
-        dataBut = new javax.swing.JButton();
+        DataBut = new javax.swing.JButton();
         ExitBut = new javax.swing.JButton();
         OtherBitalinoBut = new javax.swing.JButton();
         ErrorBitText = new javax.swing.JLabel();
@@ -48,10 +48,10 @@ public class PatientInsideWindow extends javax.swing.JFrame {
             }
         });
 
-        dataBut.setText("SEE MY INFO");
-        dataBut.addActionListener(new java.awt.event.ActionListener() {
+        DataBut.setText("SEE DATA");
+        DataBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataButActionPerformed(evt);
+                DataButActionPerformed(evt);
             }
         });
 
@@ -75,10 +75,6 @@ public class PatientInsideWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(ErrorBitText)
-                .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -88,9 +84,13 @@ public class PatientInsideWindow extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(GetBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dataBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DataBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(OtherBitalinoBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(128, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ErrorBitText)
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,7 +100,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ErrorBitText)
                 .addGap(21, 21, 21)
-                .addComponent(dataBut)
+                .addComponent(DataBut)
                 .addGap(26, 26, 26)
                 .addComponent(OtherBitalinoBut)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
@@ -112,7 +112,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GetButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GetButActionPerformed
-        if (PatientPrincipalWindow.patient.getMacBitalino() != null) {
+        if (!PatientPrincipalWindow.patient.getMacBitalino().equals("null")) {
             ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "GetData");
             PatientChooseSignal rd = new PatientChooseSignal();
             this.setVisible(false);
@@ -125,9 +125,8 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_GetButActionPerformed
 
     private void ExitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButActionPerformed
-        PatientPrincipalWindow rd = new PatientPrincipalWindow();
-        this.setVisible(false);
-        rd.setVisible(true);         // TODO add your handling code here:
+        ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "release");
+        System.exit(0);       // TODO add your handling code here:
     }//GEN-LAST:event_ExitButActionPerformed
 
     private void OtherBitalinoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherBitalinoButActionPerformed
@@ -138,11 +137,15 @@ public class PatientInsideWindow extends javax.swing.JFrame {
         rd.setVisible(true);     // TODO add your handling code here:
     }//GEN-LAST:event_OtherBitalinoButActionPerformed
 
-    private void dataButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataButActionPerformed
+    private void DataButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataButActionPerformed
         PatientInformationWindow rd = new PatientInformationWindow();
         this.setVisible(false);
         rd.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_dataButActionPerformed
+
+    private void dataButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataButActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DataButActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,10 +186,10 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DataBut;
     private javax.swing.JLabel ErrorBitText;
     private javax.swing.JButton ExitBut;
     private javax.swing.JButton GetBut;
     private javax.swing.JButton OtherBitalinoBut;
-    private javax.swing.JButton dataBut;
     // End of variables declaration//GEN-END:variables
 }

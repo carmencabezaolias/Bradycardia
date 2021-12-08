@@ -5,19 +5,22 @@
  */
 package interf;
 
+import Utilities.ConnectionWithServer;
 import Utilities.FunctionsBitalino;
+import static interf.PatientChooseSignal.bitalino;
 
 /**
  *
  * @author carmen
  */
 public class PatientGetData extends javax.swing.JFrame {
-
+public static String text;
     /**
      * Creates new form PatientSeeData
      */
     public PatientGetData() {
         initComponents();
+        text="";
         this.setLocationRelativeTo(null);
         this.setResizable(false);
 
@@ -104,16 +107,22 @@ public class PatientGetData extends javax.swing.JFrame {
     }//GEN-LAST:event_StopButActionPerformed
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed
+              ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "back");
         PatientInsideWindow rd = new PatientInsideWindow();
         this.setVisible(false);
         rd.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_BackButActionPerformed
 
     private void StartButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButActionPerformed
+        int i =0;
+      //  FunctionsBitalino.getDataBitalino(bitalino);
+      // this.OutputText.setText(text);
+      ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "start");
         while (!this.StopBut.isSelected() || !this.BackBut.isSelected()) {
-            this.OutputText.setText(this.OutputText.getText() + FunctionsBitalino.getDataBitalino2());
+            this.OutputText.setText(this.OutputText.getText() + FunctionsBitalino.getDataBitalino2(PatientChooseSignal.bitalino,i));
+            i= i+1;
         }
-        FunctionsBitalino.stopDataBitalino();
+        FunctionsBitalino.stopDataBitalino(bitalino);
 
     }//GEN-LAST:event_StartButActionPerformed
 
@@ -157,7 +166,7 @@ public class PatientGetData extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackBut;
-    private javax.swing.JLabel OutputText;
+    public static javax.swing.JLabel OutputText;
     private javax.swing.JButton StartBut;
     private javax.swing.JButton StopBut;
     private javax.swing.JScrollPane jScrollPane1;

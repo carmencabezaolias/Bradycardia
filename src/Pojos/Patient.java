@@ -51,7 +51,7 @@ public class Patient {
 
     public Patient() {
         super();
-        this.fullName = "hey";
+        this.fullName = "";
         this.username = "";
         this.macBitalino = null;
     }

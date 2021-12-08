@@ -38,7 +38,6 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         BackBut = new javax.swing.JButton();
-        AdqBut = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         MacInput = new javax.swing.JTextField();
         MacError = new javax.swing.JLabel();
@@ -51,13 +50,6 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
         BackBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackButActionPerformed(evt);
-            }
-        });
-
-        AdqBut.setText("Adquire");
-        AdqBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdqButActionPerformed(evt);
             }
         });
 
@@ -85,31 +77,28 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(60, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(BackBut)
+                        .addGap(114, 114, 114)
+                        .addComponent(SaveBut)
+                        .addGap(76, 76, 76))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(MacError)
+                        .addGap(63, 63, 63))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(99, 99, 99)
-                        .addComponent(MacInput, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(MacInput, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jLabel1)))
-                .addContainerGap(108, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(BackBut)
-                        .addGap(18, 18, 18)
-                        .addComponent(SaveBut)
-                        .addGap(45, 45, 45)
-                        .addComponent(AdqBut)
-                        .addGap(50, 50, 50))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(MacError)
-                        .addGap(63, 63, 63))))
+                        .addGap(123, 123, 123)
+                        .addComponent(jLabel3)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +114,6 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
                 .addGap(90, 90, 90)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BackBut)
-                    .addComponent(AdqBut)
                     .addComponent(SaveBut))
                 .addGap(18, 18, 18))
         );
@@ -139,70 +127,14 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_MacInputActionPerformed
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed
+      ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "back");
         PatientInsideWindow rd = new PatientInsideWindow();
         this.setVisible(false);
         rd.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_BackButActionPerformed
 
-    private void AdqButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdqButActionPerformed
-        boolean e = checkMacInterface();
-        if (!e) {
-            // mac = this.MacInput.getText();
-            PatientChooseSignal rd = new PatientChooseSignal();
-            this.setVisible(false);
-            rd.setVisible(true);
-        }
-        /*bitalino = new BITalino();
-        int samplingRate = 0;
-        boolean errorMac, errorSam = false;
-        String macAddress = "";
-        macAddress = this.MacInput.getText();
-        String sampling = this.SamplingRateInput.getText();
-
-        if (!FunctionsInterfaz.checkMac(macAddress)) {
-            this.MacError.setForeground(Color.red);
-            this.MacError.setVisible(true);
-            errorMac = true;
-        } else {
-            this.MacError.setVisible(false);
-            errorMac = false;
-        }
-
-        samplingRate = FunctionsInterfaz.checkSamping(sampling);
-        if (samplingRate == 1) {
-            this.SamplingError.setText("The sampling rate is a number");
-            this.SamplingError.setForeground(Color.red);
-            this.SamplingError.setVisible(true);
-            errorSam = true;
-        } else if (samplingRate == 2) {
-            this.SamplingError.setText("The sampling rate has to be 10,100 or 1000");
-            this.SamplingError.setForeground(Color.red);
-            this.SamplingError.setVisible(true);
-            errorSam = true;
-        } else {
-            errorSam = false;
-        }
-        boolean er;
-        boolean errorOpen;
-        if (!errorSam && !errorMac) {
-            Main.patient.setBitalino(bitalino);
-            errorOpen = FunctionsInterfaz.openBitalinoInInterface(macAddress, samplingRate);
-            this.ErrorText.setVisible(false);
-            int a = this.SignalInput.getSelectedIndex();
-            er = FunctionsInterfaz.checkChannel(a, bitalino);
-            if (errorOpen || er) {
-                this.ErrorText.setForeground(Color.red);
-                this.ErrorText.setText("Something went wrong");
-                this.ErrorText.setVisible(true);
-            } else {
-
-            }
-
-        }*/
-
-    }//GEN-LAST:event_AdqButActionPerformed
-
     private void SaveButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButActionPerformed
+     // ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "start");
         boolean e = checkMacInterface();
         if (!e) {
             PatientInsideWindow rd = new PatientInsideWindow();
@@ -272,7 +204,6 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AdqBut;
     private javax.swing.JButton BackBut;
     private javax.swing.JLabel MacError;
     private javax.swing.JTextField MacInput;

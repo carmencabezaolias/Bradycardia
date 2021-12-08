@@ -43,7 +43,7 @@ public class FunctionsPatient {
             PatientPrincipalWindow.patient.setAddress(adress);
             PatientPrincipalWindow.patient.setEmail(email);
             PatientPrincipalWindow.patient.setPhonenumber(phone);
-            // PatientPrincipalWindow.patient.setPassword(password);
+            PatientPrincipalWindow.patient.setPassword(password);
             //PatientPrincipalWindow.patientManager.createPatient(PatientPrincipalWindow.patient);
             //PatientPrincipalWindow.patient.setPassword(password);
             // PatientPrincipalWindow.patientManager.createPatient(PatientPrincipalWindow.patient);

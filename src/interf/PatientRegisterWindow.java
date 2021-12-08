@@ -47,6 +47,8 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
         InputFullName = new javax.swing.JTextField();
         InputUsername = new javax.swing.JTextField();
         ErrorUsername = new javax.swing.JLabel();
+        InputPassword = new javax.swing.JPasswordField();
+        Input2Password = new javax.swing.JPasswordField();
         PasswordError = new javax.swing.JLabel();
         BackBut = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -58,8 +60,6 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
         ErrorEmail = new javax.swing.JLabel();
         ErrorPhone = new javax.swing.JLabel();
         ErrorName = new javax.swing.JLabel();
-        InputPassword = new javax.swing.JTextField();
-        InputFullName3 = new javax.swing.JTextField();
 
         jLabel7.setText("Email:");
 
@@ -88,14 +88,12 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
             }
         });
 
-        InputFullName.setText("pepe");
         InputFullName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InputFullNameActionPerformed(evt);
             }
         });
 
-        InputUsername.setText("pepe");
         InputUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InputUsernameActionPerformed(evt);
@@ -115,7 +113,6 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
 
         jLabel6.setText("Email:");
 
-        Inputemail.setText("pp@gmail.com");
         Inputemail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InputemailActionPerformed(evt);
@@ -124,7 +121,6 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
 
         jLabel8.setText("Adress:");
 
-        inputAdress.setText("ceu");
         inputAdress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputAdressActionPerformed(evt);
@@ -133,7 +129,6 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
 
         jLabel9.setText("Phone number:");
 
-        inputPhone.setText("676206084");
         inputPhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputPhoneActionPerformed(evt);
@@ -146,20 +141,6 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
 
         ErrorName.setText("Enter a name without numbers");
 
-        InputPassword.setText("java");
-        InputPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputPasswordActionPerformed(evt);
-            }
-        });
-
-        InputFullName3.setText("java");
-        InputFullName3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputFullName3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -170,9 +151,9 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(InputFullName3, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
+                        .addGap(18, 18, 18)
+                        .addComponent(Input2Password, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(PasswordError, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(118, 118, 118)
@@ -197,11 +178,11 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
                             .addComponent(ErrorUsername)
                             .addComponent(ErrorEmail)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addGap(14, 14, 14)
-                                .addComponent(InputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(49, 49, 49)
+                                .addComponent(InputPassword))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addGap(18, 18, 18)
@@ -248,7 +229,7 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(inputPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ErrorPhone))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(InputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -257,11 +238,11 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(InputFullName3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(Input2Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(PasswordError)))
-                .addGap(27, 27, 27)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SaveBut)
                     .addComponent(BackBut))
@@ -316,7 +297,7 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
             this.ErrorPhone.setVisible(false);
         }
 
-        if ((this.InputPassword.getText().equals(this.InputFullName3.getText())) ) {
+        if ((this.InputPassword.getText().equals(this.Input2Password.getText())) ) {
             this.PasswordError.setVisible(false);
 
         } else {
@@ -328,7 +309,7 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
             ConnectionWithServer.sendNewPatient(FirstWindow.socket, FirstWindow.printWriter, PatientPrincipalWindow.patient);
             String s = ConnectionWithServer.receiveSomething(FirstWindow.socket, FirstWindow.bufferedReader);
             if(s.equals("done")){
-                PatientBitalinoWindow rd = new PatientBitalinoWindow();
+                PatientPrincipalWindow rd = new PatientPrincipalWindow();
                 this.setVisible(false);
                 rd.setVisible(true);
             } else{
@@ -415,10 +396,10 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
     private javax.swing.JLabel ErrorName;
     private javax.swing.JLabel ErrorPhone;
     private javax.swing.JLabel ErrorUsername;
+    private javax.swing.JPasswordField Input2Password;
     private javax.swing.JTextField InputFullName;
     private javax.swing.JTextField InputFullName2;
-    private javax.swing.JTextField InputFullName3;
-    private javax.swing.JTextField InputPassword;
+    private javax.swing.JPasswordField InputPassword;
     private javax.swing.JTextField InputUsername;
     private javax.swing.JTextField Inputemail;
     private javax.swing.JLabel PasswordError;
