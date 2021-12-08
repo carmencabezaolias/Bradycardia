@@ -121,8 +121,8 @@ public class FirstWindow extends javax.swing.JFrame {
         socket = Utilities.ConnectionWithServer.connectToServer();
         try {
             printWriter = new PrintWriter(socket.getOutputStream(), true);
-            printWriter.println("hola en firts window");
-            bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));;
+            printWriter.println("hola en first window");
+            bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         } catch (IOException ex) {
             Logger.getLogger(FirstWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -134,6 +134,13 @@ public class FirstWindow extends javax.swing.JFrame {
             this.t2.setForeground(Color.red);
             this.t2.setText("Error, not possible the connection with the server");
         } else {
+            try {
+                printWriter = new PrintWriter(socket.getOutputStream(), true);
+                printWriter.println("hola en firts window");
+                bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));;
+            } catch (IOException ex) {
+                Logger.getLogger(FirstWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
             PatientPrincipalWindow rd = new PatientPrincipalWindow();
             this.setVisible(false);
             rd.setVisible(true);

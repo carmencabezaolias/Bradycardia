@@ -15,10 +15,9 @@ public class Doctor {
     String fullName;
     String username;
     String email;
+    private String password;
 
-    private byte[] password;
-
-    public Doctor(String username, String fullname, byte[] password) {
+    public Doctor(String username, String fullname, String password) {
         super();
         this.fullName = fullName;
         this.username = username;
@@ -52,6 +51,14 @@ public class Doctor {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUsername() {
