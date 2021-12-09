@@ -112,10 +112,42 @@ public class Patient {
         this.diagnosis = diagnosis;
     }
 
+    public void setNewDiagnosis(boolean diz, boolean sin, boolean fat, boolean car, boolean con, String obs) {
+        String diag = "";
+        if (diz) {
+            diag.concat("Yes;");
+        } else {
+            diag.concat("No;");
+        }
+        if (sin) {
+            diag.concat("Yes;");
+        } else {
+            diag.concat("No;");
+        }
+        if (fat) {
+            diag.concat("Yes;");
+        } else {
+            diag.concat("No;");
+        }
+        if (car) {
+            diag.concat("Yes;");
+        } else {
+            diag.concat("No;");
+        }
+        if (con) {
+            diag.concat("Yes;");
+        } else {
+            diag.concat("No;");
+        }
+        diag.concat(obs);
+        diag = diag + ';';
+        this.diagnosis = diag;
+    }
+
     public String getPassword() {
         return password;
     }
-    
+
     public Integer getDocId() {
         return docId;
     }

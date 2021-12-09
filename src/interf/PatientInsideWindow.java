@@ -34,10 +34,11 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         GetBut = new javax.swing.JButton();
-        DataBut = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         ExitBut = new javax.swing.JButton();
         OtherBitalinoBut = new javax.swing.JButton();
         ErrorBitText = new javax.swing.JLabel();
+        diagnosisBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,12 +49,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
             }
         });
 
-        DataBut.setText("SEE DATA");
-        DataBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DataButActionPerformed(evt);
-            }
-        });
+        jButton2.setText("SEE DATA");
 
         ExitBut.setText("Exit");
         ExitBut.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +67,13 @@ public class PatientInsideWindow extends javax.swing.JFrame {
 
         ErrorBitText.setText("You have not register a BITalino yet");
 
+        diagnosisBut.setText("MAKE A DIAGNOSIS TEST");
+        diagnosisBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diagnosisButActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,8 +87,9 @@ public class PatientInsideWindow extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(GetBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(DataBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(OtherBitalinoBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(OtherBitalinoBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(diagnosisBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(128, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -100,10 +104,12 @@ public class PatientInsideWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ErrorBitText)
                 .addGap(21, 21, 21)
-                .addComponent(DataBut)
+                .addComponent(jButton2)
                 .addGap(26, 26, 26)
                 .addComponent(OtherBitalinoBut)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(diagnosisBut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(ExitBut)
                 .addGap(18, 18, 18))
         );
@@ -147,6 +153,13 @@ public class PatientInsideWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DataButActionPerformed
 
+    private void diagnosisButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosisButActionPerformed
+        ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "diagnosis");
+        TestWindow rd = new TestWindow();
+        this.setVisible(false);
+        rd.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_diagnosisButActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -161,10 +174,11 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton DataBut;
     private javax.swing.JLabel ErrorBitText;
     private javax.swing.JButton ExitBut;
     private javax.swing.JButton GetBut;
     private javax.swing.JButton OtherBitalinoBut;
+    private javax.swing.JButton diagnosisBut;
+    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }
