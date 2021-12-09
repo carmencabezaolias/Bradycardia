@@ -23,8 +23,6 @@ public static BITalino bitalino;
      */
     public PatientChooseSignal() {
         initComponents();
-       // this.showText.setVisible(false);
-        //this.stopBut.setVisible(false);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.StartBut.setVisible(true);
@@ -162,66 +160,37 @@ public static BITalino bitalino;
         int samplingRate = FunctionsBitalino.getSampling(sam);
         this.errorNum.setVisible(false);
         
-            boolean num= Exceptions.checkInt(this.nSamples.getText());
-            if(num){
-              
-                bitalino = FunctionsBitalino.configuredBitalino(PatientPrincipalWindow.patient.getMacBitalino(), samplingRate, this.SignalInput.getSelectedIndex());
-                if (bitalino==null) {
-                      this.ErrorText.setForeground(Color.red);
-                      this.ErrorText.setVisible(true);
-                }else{ 
-                    this.showText.setVisible(true);
-                    this.showText.setForeground(Color.pink);
-                    ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "start");
-                    int n= Exceptions.convertInt(this.nSamples.getText());
-                    FunctionsBitalino.getDataBitalino(bitalino, n);
-                    
-                    this.StartBut.setVisible(false); 
-                }
-            }else{
-                this.errorNum.setForeground(Color.red);
-                this.errorNum.setVisible(true);
-                
-           
-                
-        }       // TODO add your handling code here:
+        boolean num= Exceptions.checkInt(this.nSamples.getText());
+        if(num){
+            bitalino = FunctionsBitalino.configuredBitalino(PatientPrincipalWindow.patient.getMacBitalino(), samplingRate, this.SignalInput.getSelectedIndex());
+            if (bitalino==null) {
+                this.ErrorText.setForeground(Color.red);
+                this.ErrorText.setVisible(true);
+            }else{ 
+                this.showText.setVisible(true);
+                this.showText.setForeground(Color.pink);
+                ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "start");
+                int n= Exceptions.convertInt(this.nSamples.getText());
+                FunctionsBitalino.getDataBitalino(bitalino, n);
+                this.StartBut.setVisible(false); 
+            }
+        }else{
+            this.errorNum.setForeground(Color.red);
+            this.errorNum.setVisible(true);      
+        }       
     }//GEN-LAST:event_StartButActionPerformed
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed
-              ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "back");
+        ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "back");
         PatientInsideWindow rd = new PatientInsideWindow();
         this.setVisible(false);
-        rd.setVisible(true);        // TODO add your handling code here:
+        rd.setVisible(true);       
     }//GEN-LAST:event_BackButActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PatientChooseSignal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PatientChooseSignal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PatientChooseSignal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PatientChooseSignal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PatientChooseSignal().setVisible(true);

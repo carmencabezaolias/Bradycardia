@@ -157,11 +157,6 @@ public class PatientLoginWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButActionPerformed
-        // Utilities.ConnectionWithServer.sendPatient(FirstWindow.socket, FirstWindow.printWriter, this.inputUser.getText(), this.inputP.getText());
-//comprobar el username y el pass
-        //PatientPrincipalWindow.patient igualarlo!
-        //if (!FunctionsPatient.loginPatient(this.inputUser.getText(), this.inputPassword.getPassword())) {
-        // this.LoginBut.setVisible(false);
         //mandamos la información con el nombre y la contraseña del paciente que esta accediendo
         ConnectionWithServer.sendPatient(FirstWindow.socket, FirstWindow.printWriter, this.inputUser.getText(), this.inputP.getText());
         //esperamos a la que el server nos mande toda la información que está guardada de él
@@ -170,7 +165,6 @@ public class PatientLoginWindow extends javax.swing.JFrame {
             ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "again");
             this.ErrorLogin.setForeground(Color.red);
             this.ErrorLogin.setVisible(true);
-            //this.TryBut.setVisible(true);
         } else {
             ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "done");
             this.ErrorLogin.setVisible(false);
@@ -203,33 +197,6 @@ public class PatientLoginWindow extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PatientLoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PatientLoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PatientLoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PatientLoginWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PatientLoginWindow().setVisible(true);

@@ -115,9 +115,6 @@ public class FirstWindow extends javax.swing.JFrame {
 
     private void EnterButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterButActionPerformed
         this.EnterBut.setVisible(false);
-        /*this.t1.setVisible(true);
-        this.t1.setVisible(true);
-        this.t3.setVisible(true);*/
         socket = Utilities.ConnectionWithServer.connectToServer();
         try {
             printWriter = new PrintWriter(socket.getOutputStream(), true);
@@ -126,10 +123,7 @@ public class FirstWindow extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(FirstWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
-        // printWriter = Utilities.ConnectionWithServer.initWriter();
         if (socket.getLocalPort() == -1) {
-            // this.t1.setVisible(false);
-            // this.t3.setVisible(false);
             this.t2.setVisible(true);
             this.t2.setForeground(Color.red);
             this.t2.setText("Error, not possible the connection with the server");
@@ -146,8 +140,6 @@ public class FirstWindow extends javax.swing.JFrame {
             rd.setVisible(true);
 
         }
-
-// TODO add your handling code here:
     }//GEN-LAST:event_EnterButActionPerformed
 
     /**

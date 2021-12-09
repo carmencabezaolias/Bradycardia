@@ -14,13 +14,6 @@ import java.awt.Color;
  * @author carmen
  */
 public class PatientBitalinoWindow extends javax.swing.JFrame {
-
-    //prueba
-    //public BITalino bi = new BITalino();
-    //  public static String mac;
-    /**
-     * Creates new form PatientBitalinoWindow
-     */
     public PatientBitalinoWindow() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -128,13 +121,12 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
 
     private void BackButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButActionPerformed
       ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "back");
-        PatientInsideWindow rd = new PatientInsideWindow();
-        this.setVisible(false);
-        rd.setVisible(true);        // TODO add your handling code here:
+      PatientInsideWindow rd = new PatientInsideWindow();
+      this.setVisible(false);
+      rd.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_BackButActionPerformed
 
     private void SaveButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButActionPerformed
-     // ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "start");
         boolean e = checkMacInterface();
         if (!e) {
             PatientInsideWindow rd = new PatientInsideWindow();
@@ -147,31 +139,7 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PatientBitalinoWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PatientBitalinoWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PatientBitalinoWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PatientBitalinoWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+            java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PatientBitalinoWindow().setVisible(true);
             }
@@ -180,7 +148,6 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
 
     public boolean checkMacInterface() {
         boolean errorMac = false;
-        //System.out.println( "a: "+ PatientPrincipalWindow.patient.getMacBitalino().toString());
         String macAddress = this.MacInput.getText();
         if (!FunctionsBitalino.checkMac(macAddress)) {
             this.MacError.setForeground(Color.red);
@@ -191,14 +158,11 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
             errorMac = false;
         }
         if (!errorMac) {
-            
-      //      System.out.println( PatientPrincipalWindow.patient.getMacBitalino().toString());
             PatientPrincipalWindow.patient.setMacBitalino(macAddress);
             System.out.println(PatientPrincipalWindow.patient.getMacBitalino().toString());
             ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, macAddress);
             System.out.println(PatientPrincipalWindow.patient.getID());
             ConnectionWithServer.receiveData(FirstWindow.socket, FirstWindow.bufferedReader);
-            //PatientPrincipalWindow.patientManager.modifyPatient(PatientPrincipalWindow.patient);
         }
         return errorMac;
     }
