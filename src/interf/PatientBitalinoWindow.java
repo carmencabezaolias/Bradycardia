@@ -158,9 +158,7 @@ public class PatientBitalinoWindow extends javax.swing.JFrame {
         }
         if (!errorMac) {
             PatientPrincipalWindow.patient.setMacBitalino(macAddress);
-            System.out.println(PatientPrincipalWindow.patient.getMacBitalino().toString());
             ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, macAddress);
-            System.out.println(PatientPrincipalWindow.patient.getID());
             ConnectionWithServer.receiveData(FirstWindow.socket, FirstWindow.bufferedReader);
         }
         return errorMac;

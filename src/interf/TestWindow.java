@@ -124,7 +124,7 @@ public class TestWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SaveBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBActionPerformed
-        System.out.println(this.Diz.isSelected());
+ 
         PatientPrincipalWindow.patient.setNewDiagnosis(this.Diz.isSelected(), this.syn.isSelected(), this.fat.isSelected(), this.cardiac.isSelected(), this.con.isSelected(), this.TextObs.getText());
         ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "sendDiagnosis");
         ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, PatientPrincipalWindow.patient.getDiagnosis());

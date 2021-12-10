@@ -87,7 +87,6 @@ public class PatientPrincipalWindow extends javax.swing.JFrame {
 
     private void LoginButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButActionPerformed
         ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "patient-login");
-        System.out.println("se ha enviado el patient-login");
         PatientLoginWindow rd = new PatientLoginWindow();
         this.setVisible(false);
         rd.setVisible(true);
