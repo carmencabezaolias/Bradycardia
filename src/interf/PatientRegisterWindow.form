@@ -41,9 +41,9 @@
                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Input2Password" min="-2" pref="272" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="InputFullName3" min="-2" pref="267" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="PasswordError" min="-2" pref="183" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -75,11 +75,11 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="InputPassword" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="InputPassword" min="-2" pref="300" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
@@ -141,17 +141,17 @@
                   <Component id="inputPhone" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ErrorPhone" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="9" max="32767" attributes="0"/>
+              <EmptySpace pref="7" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="InputPassword" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Input2Password" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="InputFullName3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -159,7 +159,7 @@
                       <Component id="PasswordError" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="SaveBut" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BackBut" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -204,11 +204,17 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="InputFullName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="pepe"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputFullNameActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="InputUsername">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="pepe"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputUsernameActionPerformed"/>
       </Events>
@@ -217,10 +223,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="This username already exist"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="InputPassword">
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="Input2Password">
     </Component>
     <Component class="javax.swing.JLabel" name="PasswordError">
       <Properties>
@@ -241,6 +243,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Inputemail">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="pp@gmail.com"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputemailActionPerformed"/>
       </Events>
@@ -251,6 +256,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="inputAdress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ceu"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputAdressActionPerformed"/>
       </Events>
@@ -261,6 +269,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="inputPhone">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="676206084"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputPhoneActionPerformed"/>
       </Events>
@@ -279,6 +290,22 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Enter a name without numbers"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="InputPassword">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="java"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputPasswordActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="InputFullName3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="java"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputFullName3ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
