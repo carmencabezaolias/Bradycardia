@@ -2,3 +2,4 @@ build/
 *.war
 *.zip
 dist/
+/nbproject/private/

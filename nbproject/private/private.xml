@@ -3,11 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/carmen/NetBeansProjects/BradycardiaGroup4/src/Pojos/ClientOfServer.java</file>
-            <file>file:/Users/carmen/NetBeansProjects/BradycardiaGroup4/src/interf/FirstWindow.java</file>
-            <file>file:/Users/carmen/NetBeansProjects/BradycardiaGroup4/src/Utilities/ConnectionWithServer.java</file>
-            <file>file:/Users/carmen/NetBeansProjects/BradycardiaGroup4/src/interf/PatientBitalinoWindow.java</file>
-            <file>file:/Users/carmen/NetBeansProjects/BradycardiaGroup4/src/interf/PatientPrincipalWindow.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/interf/DiagnosisView.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/interf/PatientChooseSignal.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/interf/PatientRegisterWindow.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/interf/PatientLoginWindow.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/interf/PatientBitalinoWindow.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/interf/PatientDataWindow.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/interf/TestWindow.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/Utilities/FunctionsBitalino.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/interf/PatientPrincipalWindow.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/interf/FirstWindow.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/interf/PatientInsideWindow.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/Utilities/FunctionsPatient.java</file>
+            <file>file:/C:/Users/drijc/Documents/NetBeansProjects/BradycardiaGroup4/src/Utilities/Exceptions.java</file>
         </group>
     </open-files>
 </project-private>
