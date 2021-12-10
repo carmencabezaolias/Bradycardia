@@ -115,32 +115,33 @@ public class Patient {
     public void setNewDiagnosis(boolean diz, boolean sin, boolean fat, boolean car, boolean con, String obs) {
         String diag = "";
         if (diz) {
-            diag.concat("Yes;");
+            diag = "Yes#";
         } else {
-            diag.concat("No;");
+            diag = "No#";
         }
         if (sin) {
-            diag.concat("Yes;");
+            diag = diag + "Yes#";
         } else {
-            diag.concat("No;");
+            diag = diag + "No#";
         }
         if (fat) {
-            diag.concat("Yes;");
+            diag = diag + "Yes#";
         } else {
-            diag.concat("No;");
+            diag = diag + "No#";
         }
         if (car) {
-            diag.concat("Yes;");
+            diag = diag + "Yes#";
         } else {
-            diag.concat("No;");
+            diag = diag + "No#";
         }
         if (con) {
-            diag.concat("Yes;");
+            diag = diag + "Yes#";
         } else {
-            diag.concat("No;");
+            diag = diag + "No#";
         }
-        diag.concat(obs);
-        diag = diag + ';';
+        diag = diag +obs;
+        diag = diag + '#';
+        System.out.println("diag: " +diag);
         this.diagnosis = diag;
     }
 

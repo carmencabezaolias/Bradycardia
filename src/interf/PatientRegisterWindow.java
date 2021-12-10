@@ -307,9 +307,6 @@ public class PatientRegisterWindow extends javax.swing.JFrame {
                 this.ErrorUsername.setVisible(true);
                 this.PasswordError.setForeground(Color.red);
             }
-          
-            
-
         }
     }//GEN-LAST:event_SaveButActionPerformed
 
