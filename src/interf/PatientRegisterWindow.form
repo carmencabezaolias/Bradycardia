@@ -42,7 +42,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="InputFullName3" min="-2" pref="267" max="-2" attributes="0"/>
+                      <Component id="InputPassword2" min="-2" pref="267" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="PasswordError" min="-2" pref="183" max="-2" attributes="0"/>
                   </Group>
@@ -141,7 +141,7 @@
                   <Component id="inputPhone" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ErrorPhone" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="7" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="InputPassword" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -151,7 +151,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="InputFullName3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="InputPassword2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -204,17 +204,11 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="InputFullName">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="pepe"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputFullNameActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="InputUsername">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="pepe"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputUsernameActionPerformed"/>
       </Events>
@@ -243,9 +237,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Inputemail">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="pp@gmail.com"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputemailActionPerformed"/>
       </Events>
@@ -256,9 +247,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="inputAdress">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ceu"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputAdressActionPerformed"/>
       </Events>
@@ -269,9 +257,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="inputPhone">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="676206084"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputPhoneActionPerformed"/>
       </Events>
@@ -292,19 +277,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="InputPassword">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="java"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputPasswordActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="InputFullName3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="java"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="InputPassword2">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputFullName3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputPassword2ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

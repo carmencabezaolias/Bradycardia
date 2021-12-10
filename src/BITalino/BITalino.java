@@ -38,9 +38,7 @@
 
 package BITalino;
 
-import java.io.IOException;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import java.io.*;
 import java.util.Vector;
 import javax.bluetooth.RemoteDevice;
 import javax.microedition.io.Connector;

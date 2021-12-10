@@ -7,6 +7,8 @@ package Utilities;
 
 import Pojos.Patient;
 import interf.PatientPrincipalWindow;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -15,13 +17,23 @@ import interf.PatientPrincipalWindow;
 public class Exceptions {
 
     public static boolean checkEmail(String email) {
-        boolean isEmail = true;
-        int index = email.indexOf("@");
+        boolean isEmail = false;
+        /*int index = email.indexOf("@");
         if (index != -1 && index != 0 && index != email.length()) {
             isEmail = false;
+        }*/
+
+        String regx = "^(.+)@(.+)$";
+        //Compile regular expression to get the pattern  
+        Pattern pattern = Pattern.compile(regx);
+        //Iterate emails array list  
+        Matcher matcher = pattern.matcher(email);
+        if( matcher.matches()){
+            isEmail = true;
         }
-        return true;
-    }
+        return isEmail;
+        }
+    
 
     public static boolean checkInt(String integer) {
         boolean isInt = true;
@@ -72,5 +84,24 @@ public class Exceptions {
             isPhone = true;
         }
         return isPhone;
+    }
+      public static String[] takeDiagnosis(String string) {
+        int i = 0;
+        int contador = 0;
+        String[] datos = new String[7];
+        String data = "";
+        char a;
+        for (i = 0; i < string.length(); i++) {
+            a=string.charAt(i);
+            while (a != '#') {
+                data = data + Character.toString(a);
+                i++;
+                a=string.charAt(i);
+            }
+            datos[contador] = data;
+            contador++;
+            data = "";
+        }
+        return datos;
     }
 }

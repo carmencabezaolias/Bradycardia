@@ -47,9 +47,7 @@
                       <Component id="BackBut" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="SaveBut" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="AdqBut" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="MacError" min="-2" max="-2" attributes="0"/>
@@ -73,7 +71,6 @@
               <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BackBut" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="AdqBut" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="SaveBut" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -90,23 +87,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackButActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="AdqBut">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Adquire"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AdqButActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="INSERT YOUR BITALINO MAC:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="MacInput">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="98:D1:91:FD:69:49"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MacInputActionPerformed"/>
       </Events>

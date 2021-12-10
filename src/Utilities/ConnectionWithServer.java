@@ -93,6 +93,7 @@ public class ConnectionWithServer {
                         contador++;
                         data = "";
                     }
+                    System.out.println("email:"+datos[5]);
                     if (datos[5].equals("null")) {
                         correct = false;
                     } else {
@@ -107,9 +108,8 @@ public class ConnectionWithServer {
                         PatientPrincipalWindow.patient.setPhonenumber(datos[4]);
                         PatientPrincipalWindow.patient.setEmail(datos[5]);
                         PatientPrincipalWindow.patient.setDiagnosis(datos[6]);
-                        PatientPrincipalWindow.patient.setDocId(Exceptions.convertInt(datos[7]));
-                        PatientPrincipalWindow.patient.setPassword(datos[8]);
-                        PatientPrincipalWindow.patient.setMacBitalino(datos[9]);
+                        PatientPrincipalWindow.patient.setPassword(datos[7]);
+                        PatientPrincipalWindow.patient.setMacBitalino(datos[8]);
                         PatientPrincipalWindow.patient.setNewBitalino();
                         correct = true;
                     }

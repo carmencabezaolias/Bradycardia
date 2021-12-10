@@ -9,8 +9,6 @@ import BITalino.BITalino;
 import BITalino.BITalinoException;
 import BITalino.Frame;
 import interf.FirstWindow;
-import interf.PatientChooseSignal;
-import interf.PatientGetData;
 import interf.PatientPrincipalWindow;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -140,7 +138,7 @@ public class FunctionsBitalino {
         try {
             bitalino.stop();
         } catch (BITalinoException ex) {
-            Logger.getLogger(PatientGetData.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("error");
         }
     }
 }

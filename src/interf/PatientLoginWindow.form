@@ -30,10 +30,9 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="31" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="inputUser" pref="215" max="32767" attributes="0"/>
-                  <Component id="inputPassword" alignment="0" max="32767" attributes="0"/>
+                  <Component id="inputUser" min="-2" pref="215" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
           </Group>
@@ -81,9 +80,7 @@
                   <Component id="LoginBut" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BackBut" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="inputPassword" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -105,19 +102,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="inputUser">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Maria"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputUserActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="inputPassword">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="1"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputPasswordActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="LoginBut">
@@ -138,7 +124,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="ErrorLogin">
       <Properties>
-        <Property name="text" type="java.lang.String" value="This patient couldn&apos;t be found"/>
+        <Property name="text" type="java.lang.String" value="username or password incorrect"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="inputP">

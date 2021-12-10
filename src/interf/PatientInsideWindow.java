@@ -34,7 +34,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         GetBut = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        SeeData = new javax.swing.JButton();
         ExitBut = new javax.swing.JButton();
         OtherBitalinoBut = new javax.swing.JButton();
         ErrorBitText = new javax.swing.JLabel();
@@ -49,7 +49,12 @@ public class PatientInsideWindow extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("SEE DATA");
+        SeeData.setText("SEE DATA");
+        SeeData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeeDataActionPerformed(evt);
+            }
+        });
 
         ExitBut.setText("Exit");
         ExitBut.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +92,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(GetBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SeeData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(OtherBitalinoBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(diagnosisBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(128, Short.MAX_VALUE))
@@ -104,7 +109,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ErrorBitText)
                 .addGap(21, 21, 21)
-                .addComponent(jButton2)
+                .addComponent(SeeData)
                 .addGap(26, 26, 26)
                 .addComponent(OtherBitalinoBut)
                 .addGap(18, 18, 18)
@@ -137,16 +142,13 @@ public class PatientInsideWindow extends javax.swing.JFrame {
 
     private void OtherBitalinoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OtherBitalinoButActionPerformed
         ConnectionWithServer.sendSomething(FirstWindow.socket, FirstWindow.printWriter, "Introducebitalino");
-        System.out.println("El id " + PatientPrincipalWindow.patient.getDocId());
         PatientBitalinoWindow rd = new PatientBitalinoWindow();
         this.setVisible(false);
         rd.setVisible(true);     // TODO add your handling code here:
     }//GEN-LAST:event_OtherBitalinoButActionPerformed
 
     private void DataButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataButActionPerformed
-        PatientInformationWindow rd = new PatientInformationWindow();
-        this.setVisible(false);
-        rd.setVisible(true);  // TODO add your handling code here:
+    // TODO add your handling code here:
     }//GEN-LAST:event_dataButActionPerformed
 
     private void dataButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataButActionPerformed
@@ -159,6 +161,12 @@ public class PatientInsideWindow extends javax.swing.JFrame {
         this.setVisible(false);
         rd.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_diagnosisButActionPerformed
+
+    private void SeeDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeeDataActionPerformed
+        PatientDataWindow rd = new PatientDataWindow();
+        this.setVisible(false);
+        rd.setVisible(true);      // TODO add your handling code here:
+    }//GEN-LAST:event_SeeDataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,7 +186,7 @@ public class PatientInsideWindow extends javax.swing.JFrame {
     private javax.swing.JButton ExitBut;
     private javax.swing.JButton GetBut;
     private javax.swing.JButton OtherBitalinoBut;
+    private javax.swing.JButton SeeData;
     private javax.swing.JButton diagnosisBut;
-    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }

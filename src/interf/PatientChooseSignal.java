@@ -6,9 +6,7 @@
 package interf;
 
 import BITalino.BITalino;
-import Utilities.ConnectionWithServer;
-import Utilities.Exceptions;
-import Utilities.FunctionsBitalino;
+import Utilities.*;
 import java.awt.Color;
 
 /**
